@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iths.dao.IDepartmentDao">
+    <!--查询所有-->
+    <select id="queryAllDepartment" resultType="department">
+        select * from department
+    </select>
+    <!--新增部门-->
+    <insert id="insertDepartment" parameterType="department">
+        insert into
+            department(departmentname)
+        values
+            (#{departmentname})
+    </insert>
+    <!--根据id删除部门-->
+    <delete id="deleteDepartmentByDepartmentid" parameterType="Integer">
+        delete from department where departmentid = #{id}
+    </delete>
+
+    <!--根据id修改部门-->
+    <update id="updateDepartmentByDepartmentid" parameterType="department">
+        update department set
+            departmentname = #{departmentname}
+        where
+            departmentid = #{departmentid}
+    </update>
+</mapper>

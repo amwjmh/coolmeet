@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iths.dao.IEmployeeDao">
+
+    <select id="queryEmployeeByUsername" parameterType="String" resultType="employee">
+        select * from employee where username = #{username}
+    </select>
+
+    <!--根据ID查询-->
+    <select id="queryEmployee" parameterType="employee" resultType="employee">
+        select * from employee
+        <trim prefix="where" suffixOverrides=",">
+            <if test="employeename != null and employeename != ''">
+                employeename = #{employeename}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="phone != null and phone != ''">
+               and phone = #{phone}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            <if test="departmentid != null and departmentid != ''">
+                and departmentid = #{departmentid}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="role != null and role != ''">
+                and  role = #{role}
+            </if>
+        </trim>
+    </select>
+
+    <!--新增-->
+    <insert id="insertEmployee" parameterType="employee">
+        insert into
+          employee(employeename,username,phone,email,status,departmentid,password,role)
+          values
+          (#{employeename},#{username},#{phone},#{email},#{status},#{departmentid},#{password},#{role})
+    </insert>
+
+    <!-- 根据status查询-->
+    <select id="queryEmployeeByStatus" parameterType="String" resultType="employee">
+        select * from employee where status = #{status}
+    </select>
+
+    <!--根据id修改数据-->
+    <update id="updateEmployeeByEmployeeid" parameterType="employee">
+        update employee
+        <trim prefix="set" suffixOverrides=",">
+            <if test="employeename != null and employeename != ''">
+                employeename = #{employeename},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            <if test="departmentid != null and departmentid != ''">
+                departmentid = #{departmentid},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="role != null and role != ''">
+                role = #{role}
+            </if>
+        </trim>
+        where employeeid = #{employeeid}
+    </update>
+
+
+    <!--根据id删除-->
+    <delete id="deleteEmployeeByEmployeeid" parameterType="Integer">
+        delete  from employee where
+          employeeid = #{employeeid}
+    </delete>
+
+    <!--模糊分页查询-->
+    <select id="queryVaguePagingEmployee" parameterType="Integer">
+        select * from employee limit #{currentPage} #{rows}
+    </select>
+    
+</mapper>
