@@ -24,7 +24,7 @@ public class Employee {
     private String phone;
     //邮箱
     private String email;
-    //职位
+    //状态
     private String status;
     //对应部门id
     private Integer departmentid;

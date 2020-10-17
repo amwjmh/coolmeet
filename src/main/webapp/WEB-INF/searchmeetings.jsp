@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
-        <link rel="stylesheet" href="/css/common.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css"/>
         <style type="text/css">
             
         </style>

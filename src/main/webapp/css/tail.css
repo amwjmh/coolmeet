@@ -1,0 +1,47 @@
+.page-body{
+    padding:10px;
+	width: 1020px;
+	height: 500px;
+}
+
+.page-sidebar{
+    width:150px;
+    float:left;
+}
+
+.page-sidebar .sidebar-menugroup{
+    padding-bottom:10px;
+}
+
+.sidebar-grouptitle{
+    width:90px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+	background-color: #dd1a9b8f;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.sidebar-menu{
+    list-style:none;
+    padding-left:20px;
+}
+
+.page-sidebar .sidebar-menugroup .sidebar-menu .sidebar-menuitem{
+	width: 100px;
+	height: 25px;
+	margin: 10px auto;
+	background-color: #68ff04;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 25px;
+	opacity: 0.5;
+	font-weight: 900;
+}
+
+.page-sidebar .sidebar-menugroup .sidebar-menu .sidebar-menuitem:hover{
+	opacity: 1;
+}
+
+

@@ -16,8 +16,14 @@ import java.util.List;
 @NoArgsConstructor
 public class PageBean<T> {
     int totalCount; //总记录数
+
     int totalPage; //总页码
+
     List<T> list;//当前页的数据
+
     int currentPage; //当前页码
-    int rows;//每页显示的条数
+
+    int  rows;//每页显示的条数
+
+    int offset;//偏移量
 }

@@ -19,7 +19,7 @@
                 <c:if test="${judgment.role=='2'}">
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/admin/jumpdepartment">部门管理</a></li>
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/admin/approveaccount">注册审批</a></li>
-                <li class="sidebar-menuitem"><a href="searchemployees.jsp">搜索员工</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=1">搜索员工</a></li>
                 </c:if>
             </ul>
         </div>

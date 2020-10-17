@@ -20,13 +20,11 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdministratorsController {
+public class AdminDepartmentManagementController {
 
     @Autowired
     private IDepartmentService departmentService;
 
-    @Autowired
-    private IMeetingroomService meetingroomService;
 /*部门*/
     //跳转并查询所有
     @RequestMapping("/jumpdepartment")
@@ -65,21 +63,5 @@ public class AdministratorsController {
         return "forward:/admin/jumpdepartment";
     }
 
-
-/*会议*/
-    //跳转
-    @RequestMapping("/jumpaddroom")
-    public String jumpAddroom(){
-
-        return "addmeetingroom";
-    }
-
-
-    //添加
-    @RequestMapping("/increaseConferenceRoom")
-    public  String increaseConferenceRoom(Meetingroom meetingroom){
-        meetingroomService.insertMeetingroom(meetingroom);
-        return "forward:/admin/jumpaddroom";
-    }
 
 }

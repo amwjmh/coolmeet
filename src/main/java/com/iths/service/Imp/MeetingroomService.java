@@ -21,5 +21,6 @@ public class MeetingroomService implements IMeetingroomService {
     @Override
     public void insertMeetingroom(Meetingroom meetingroom) {
         meetingroomDao.insertMeetingroom(meetingroom);
+        System.out.println("//增加会议室");
     }
 }

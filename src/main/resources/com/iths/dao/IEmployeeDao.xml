@@ -4,16 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iths.dao.IEmployeeDao">
 
+
     <select id="queryEmployeeByUsername" parameterType="String" resultType="employee">
         select * from employee where username = #{username}
     </select>
 
-    <!--根据ID查询-->
+    <!--根据查询-->
     <select id="queryEmployee" parameterType="employee" resultType="employee">
         select * from employee
-        <trim prefix="where" suffixOverrides=",">
+        <where>
+        <trim suffixOverrides=",">
             <if test="employeename != null and employeename != ''">
-                employeename = #{employeename}
+                and employeename = #{employeename}
             </if>
             <if test="username != null and username != ''">
                 and username = #{username}
@@ -37,6 +39,7 @@
                 and  role = #{role}
             </if>
         </trim>
+        </where>
     </select>
 
     <!--新增-->
@@ -57,25 +60,25 @@
         update employee
         <trim prefix="set" suffixOverrides=",">
             <if test="employeename != null and employeename != ''">
-                employeename = #{employeename},
+                employeename = #{employeename}
             </if>
             <if test="username != null and username != ''">
-                username = #{username},
+                username = #{username}
             </if>
             <if test="phone != null and phone != ''">
-                phone = #{phone},
+                phone = #{phone}
             </if>
             <if test="email != null and email != ''">
-                email = #{email},
+                email = #{email}
             </if>
             <if test="status != null and status != ''">
-                status = #{status},
+                status = #{status}
             </if>
             <if test="departmentid != null and departmentid != ''">
-                departmentid = #{departmentid},
+                departmentid = #{departmentid}
             </if>
             <if test="password != null and password != ''">
-                password = #{password},
+                password = #{password}
             </if>
             <if test="role != null and role != ''">
                 role = #{role}
@@ -92,8 +95,37 @@
     </delete>
 
     <!--模糊分页查询-->
-    <select id="queryVaguePagingEmployee" parameterType="Integer">
-        select * from employee limit #{currentPage} #{rows}
+    <select id="queryVaguePagingEmployee" resultType="employee">
+          select * from employee
+          <if test="emp != null">
+              <where>
+                  <if test="emp.employeename != null and emp.employeename != ''">
+                      and employeename like "%"#{emp.employeename}"%"
+                  </if>
+                  <if test="emp.username != null and emp.username != ''">
+                      and username like "%"#{emp.username}"%"
+                  </if>
+                  <if test="emp.status != null and emp.status != ''">
+                      and status = #{emp.status}
+                  </if>
+              </where>
+          </if>
+                limit #{pag.offset},#{pag.rows}
+    </select>
+    <!--查询总记录数-->
+    <select id="queryTotalEmployee" parameterType="employee" resultType="Integer">
+        select COUNT(employeeid) from employee
+        <where>
+            <if test="employeename != null and employeename != ''">
+                and employeename like "%"#{employeename}"%"
+            </if>
+            <if test="username != null and username != ''">
+                and username like "%"#{username}"%"
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+        </where>
     </select>
     
 </mapper>

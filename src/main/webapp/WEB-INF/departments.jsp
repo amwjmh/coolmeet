@@ -4,7 +4,9 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
-        <link rel="stylesheet" href="/css/common.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tail.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css"/>
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     </head>
     <body>
@@ -56,44 +58,60 @@
     </script>
         <%@include file="top.jsp"%>
         <%@include file="leftmenubar.jsp"%>
-            <div class="page-content">
-                <div class="content-nav">
-                    人员管理 > 部门管理
-                </div>
-                <form action="${pageContext.request.contextPath}/admin/increasedepartment" method="post" onsubmit="return text(this);">
-                    <fieldset>
-                        <legend>添加部门</legend>
-                        部门名称:
-                        <input type="text" id="departmentname" maxlength="20" name="departmentname"/>
-
-                        <input type="submit" class="clickbutton" value="添加"/>
-                        <span id="warning" style="color: red"></span>
-                    </fieldset>
-                </form>
-
-                <table class="listtable">
-                    <caption>所有部门:</caption>
-                    <tr class="listheader">
-                        <th>部门编号</th>
-                        <th>部门名称</th>
-                        <th>操作</th>
-                    </tr>
-                    <c:forEach var="department" items="${list}" varStatus="status">
-                        <tr>
-                            <td>${status.index+1}</td>
-                            <td id="depar${status.index}">
-                                ${department.departmentname}
-                            </td>
-                            <td>
-                                <input id="edit${status.index}" class="clickbutton" type="button" value="编辑"/>
-                                <input id="cancel${status.index}" class="clickbutton" type="hidden" value="取消"/>
-                                <a id="del${status.index}" class="clickbutton" href="${pageContext.request.contextPath}/admin/deletedepartment?departmentid=${department.departmentid}">删除</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </div>
+    <div class="page-content">
+        <div class="content-nav">
+            人员管理 > 部门管理
         </div>
-        <%@include file="tail.jsp"%>
+        <form action="${pageContext.request.contextPath}/admin/increasedepartment" method="post" onsubmit="return text(this);">
+            <div class="fieldContainer">
+                <div class="formRow">
+                    <div class="label">
+                        <label>部门名称:</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" id="departmentname" maxlength="20" name="departmentname"/>
+                    </div>
+
+                    <div class="signupButton">
+                        <input type="submit" class="clickbutton" value="添加"/>
+                    </div>
+                </div>
+
+            </div>
+            <span id="warning" style="color: red"></span>
+
+        </form>
+
+        <table class="listtable" cellpadding="0" cellspacing="0">
+            <caption>所有部门:</caption>
+
+            <thead>
+             <tr class="listheader">
+                <th>部门编号</th>
+                <th>部门名称</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="department" items="${list}" varStatus="status">
+                <tr>
+
+                    <td width=10%>${status.index+1}</td>
+                    <td width=45% id="depar${status.index}">
+                            ${department.departmentname}
+                    </td>
+                    <td width=30% class="td">
+                        <input id="edit${status.index}" class="clickbutton" type="button" value="编辑"/>
+                        <input id="cancel${status.index}" class="clickbutton" type="hidden" value="取消"/>
+                        <a id="del${status.index}" class="clickbutton" href="${pageContext.request.contextPath}/admin/deletedepartment?departmentid=${department.departmentid}">删除</a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+
+
+        <%--<%@include file="tail.jsp"%>--%>
     </body>
 </html>

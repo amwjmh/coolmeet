@@ -1,0 +1,50 @@
+
+	
+.fieldset{
+	    padding:30px;
+		background-color:rgba(3, 218, 218, 0.18);
+		width: 450px;
+		height: 200px;
+	    margin: auto;
+		border-radius: 25px;
+		margin-top: 40px;
+	}
+	
+.fieldset .formtable input[type="text"],input[type="password"]{
+	    padding: 13px 10px;
+	    width: 430px;
+	    font-size: 20px;
+	    outline: none;
+	    background: transparent;
+	    border: 0px;
+	    border-bottom: 1px solid #fff;
+	    border-radius: 0px;
+	    "Asap-Regular": ;
+	    letter-spacing: 1.6px;
+	    color: #080808;
+	}
+	
+.fieldset .formtable input[type="submit"],input[type="button"] {
+    font-size: 18px;
+    padding: 10px 20px;
+    letter-spacing: 1.2px;
+    border: none;
+    text-transform: capitalize;
+    outline: none;
+    -webkit-border-radius: 4px;
+    background: #5b76d6;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.9s;
+	margin-left: 50px;
+}
+.command{
+	margin: 50px auto;
+	width: 300px;
+}
+
+.formtable input[type="submit"]:hover,input[type="button"]:hover{
+    -webkit-transition-duration: 0.9s;
+    transition-duration: 0.9s;
+    background: rgba(91, 157, 214, 0.76);
+}

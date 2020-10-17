@@ -47,10 +47,13 @@ public interface IEmployeeDao {
 
     /**
      * 分页查询
-     * @param currentPage
-     * @param rows
      * @return
      */
-    List<Employee> queryVaguePagingEmployee(@Param("currentPage") Integer currentPage,@Param("rows") Integer rows);
+    List<Employee> queryVaguePagingEmployee(@Param("pag") PageBean<Employee> pageBean,@Param("emp") Employee employee);
 
+    /**
+     * 查询总记录
+     * @return
+     */
+    Integer queryTotalEmployee(Employee employee);
 }

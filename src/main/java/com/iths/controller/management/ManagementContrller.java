@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -35,6 +33,7 @@ public class ManagementContrller {
 
     @Autowired
     private IEmployeeService employeeService;
+
     //跳转员工注册并加载部门
     @RequestMapping("/employeeRegistration")
     public String employeeRegistration(Model model){
@@ -57,7 +56,7 @@ public class ManagementContrller {
 
     @RequestMapping("/determineUsernameExists")
     public void determineUsernameExists(Employee employee, HttpServletResponse response){
-        System.out.println(employee);
+        System.out.println("存在"+employee);
         Employee queryemployee = employeeService.queryEmployee(employee);
 
         System.out.println(employee);

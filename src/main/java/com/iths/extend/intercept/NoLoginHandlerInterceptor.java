@@ -2,6 +2,7 @@ package com.iths.extend.intercept;
 
 
 import com.iths.pojo.Employee;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,7 +45,6 @@ public class NoLoginHandlerInterceptor implements HandlerInterceptor {
             //已登入
             //判断路径
             if (pathMatcher.match(contextPath+"/admin/**",requestURI)){
-                System.out.println(currentuser.getRole());
                 if (currentuser.getRole().equals("2")) {
 
                     return true;

@@ -12,6 +12,7 @@ import java.util.List;
  */
 public interface IEmployeeService {
 
+
     Employee employeeLogin(String username,String password);
 
     //查询用户是
@@ -28,7 +29,7 @@ public interface IEmployeeService {
 
 
      //分页查询
-    PageBean<Employee> findEmployeeByPage(Integer currentPage,Integer rows);
+    PageBean<Employee> findEmployeeByPage(PageBean<Employee> pageBean,Employee employee);
 
 
 }

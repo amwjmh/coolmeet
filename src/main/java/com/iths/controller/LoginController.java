@@ -44,6 +44,7 @@ public class LoginController {
         }
         //存入session，用于判断用户是否登入
         session.setAttribute("judgment",employee);
+        System.out.println("成功登入");
         return "forward:/notifications/notice";
     }
 

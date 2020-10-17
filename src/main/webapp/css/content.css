@@ -1,0 +1,314 @@
+.page-body .page-content{
+	width: 870px;
+	    float: left;
+	    height: 500px;
+}
+.page-body .page-content .content-nav{
+	font-weight: 600;
+}
+
+.page-body .page-content form{
+	display: block;
+	margin-top: 0em;
+}
+
+.page-body .page-content .fieldContainer{
+	   
+	    border: 1px solid #fef548;
+	    padding: 10px;
+	    -moz-box-shadow: 0 0 20px #292929 inset;
+	    box-shadow: 0 0 20px #e9d068 inset;
+		border-radius: 10px;
+		width: 850px;
+		    float: left;
+		    height: auto;
+}
+/*======================================================================  */
+.page-body .page-content .fieldContainer .formRow{
+	    height: 35px;
+	    padding: 10px;
+	    position: relative;
+		margin: auto;
+
+}
+.page-body .page-content .fieldContainer .formRow .label{
+	        float: left;
+	        /* padding: 0 20px 0 0; */
+	        text-align: left;
+	        width: 110px;
+}
+
+
+.page-body .page-content .fieldContainer .formRow .label label{
+	    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	    font-size: 15px;
+	    letter-spacing: 1px;
+	    line-height: 35px;
+		font-weight: 600;
+}
+
+.page-body .page-content .fieldContainer .formRow .field{
+	float: left;
+}
+
+.page-body .page-content .fieldContainer .formRow .field select{
+	width: 200px;
+	height: 30px;
+	margin-bottom: 20px;
+	box-shadow: 3px 3px 10px #9a9b9d
+}
+
+.page-body .page-content .fieldContainer .formRow .field input{
+	border: 1px solid white;
+	    color: #666666;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 22px;
+	    padding: 4px 5px;
+	    outline: none;
+		box-shadow: 3px 3px 10px #9a9b9d;
+}
+
+.page-body .page-content .fieldContainer .signupButton{
+	width: 130px;
+	/* height: 35px; */
+	float: left;
+	padding-left: 20px;
+	margin: auto;
+}
+.page-body .page-content .fieldContainer .signupButton input{
+	width: 60px;
+	text-align: center;
+	    font-size: 15px;
+	    padding: 10px 10px;
+	    letter-spacing: 1.2px;
+	    border: none;
+	    text-transform: capitalize;
+	    outline: none;
+	    -webkit-border-radius: 4px;
+	    background: #5b76d6;
+	    color: #fff;
+	    cursor: pointer;
+	    transition-duration: 0.9s;
+}
+.page-body .page-content .fieldContainer .signupButton input:hover{
+	-webkit-transition-duration: 0.9s;
+	transition-duration: 0.9s;
+	background: rgba(91, 157, 214, 0.76);
+}
+
+/* 注册 */
+.page-body .page-content .listtable{
+		    width: 100%;
+		    font-size: 16px;
+		    border: 1px solid #b0abab;
+			border-radius: 10px;
+}
+
+.page-body .page-content .listtable thead tr th{
+	background: #9bd2fe8f;
+	padding: 10px;
+	text-align: left;
+}
+
+.page-body .page-content .listtable tbody{
+	display: table-row-group;
+	    vertical-align: middle;
+	    border-color: inherit;
+}
+
+
+.page-body .page-content .listtable tbody tr{
+	height: 40px;
+	display: table-row;
+	    vertical-align: inherit;
+	    border-color: inherit;
+}
+
+.page-body .page-content .listtable tbody tr td{
+	padding: 5px;
+	text-align: left;
+	border-bottom: 1px solid #b0abab;
+	border-right: 1px solid #b0abab;
+}
+
+.page-body .page-content .listtable .clickbutton {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 10px;
+    letter-spacing: 1.2px;
+    border: none;
+    text-transform: capitalize;
+    outline: none;
+    -webkit-border-radius: 4px;
+    background: #5b76d6;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.9s;
+}
+.page-body .page-content .listtable .clickbutton:hover{
+	-webkit-transition-duration: 0.9s;
+	transition-duration: 0.9s;
+	background: red;
+}
+
+
+.page-body .page-content .listtable tbody tr td input[type="text"]{
+	    height: 30px;
+	    border: 1px solid white;
+	    color: #666666;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 16px;
+	    padding: 4px 5px;
+	    outline: none;
+	    box-shadow: 3px 3px 10px #9a9b9d;
+}
+
+
+.page-body .page-content .listtable tbody tr .td >*{
+	    text-align: center;
+	        font-size: 15px;
+	        padding: 10px 10px;
+	        letter-spacing: 1.2px;
+	        border: none;
+	        text-transform: capitalize;
+	        outline: none;
+	        -webkit-border-radius: 4px;
+	        background: #5b76d6;
+	        color: #fff;
+	        cursor: pointer;
+	        transition-duration: 0.9s;
+}
+
+
+
+.listtable caption{
+	font-weight: 600;
+}
+
+审批
+/* =================== */
+.page-body .page-content .listtable .clickbutton {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 10px;
+    letter-spacing: 1.2px;
+    border: none;
+    text-transform: capitalize;
+    outline: none;
+    -webkit-border-radius: 4px;
+    background: #5b76d6;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.9s;
+}
+
+/* 搜索员工 */
+.page-body .page-content .fieldContainer .searchformRow .label{
+		float: left;
+	    /* padding: 0 20px 0 0; */
+	    text-align: left;
+	    width: 70px;
+}
+
+.page-body .page-content .fieldContainer .searchformRow .label label {
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-weight: 600;
+}
+.page-body .page-content .fieldContainer .searchformRow {
+    height: 28px;
+    padding: 10px;
+    position: relative;
+    margin: auto;
+    float: left;
+}
+
+.page-body .page-content .fieldContainer .searchformRow .field{
+	float: left;
+}
+.page-body .page-content .fieldContainer .searchformRow .field input{
+	    border: 1px solid white;
+	    color: #666666;
+	    font-family: Arial,Helvetica,sans-serif;
+	    padding: 4px 5px;
+	    outline: none;
+	    box-shadow: 3px 3px 10px #9a9b9d;
+	
+}
+
+.page-body .page-content .fieldContainer .searchsignupButton {
+    width: 130px;
+    height: 35px;
+    /* float: left; */
+    padding-top: 50px;
+    margin: auto;
+}
+
+.page-body .page-content .fieldContainer .searchsignupButton input {
+    width: 60px;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 10px;
+    letter-spacing: 1.2px;
+    border: none;
+    text-transform: capitalize;
+    outline: none;
+    -webkit-border-radius: 4px;
+    background: #5b76d6;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.9s;
+}
+
+.page-body .page-content .fieldContainer .searchsignupButton input:hover{
+	-webkit-transition-duration: 0.9s;
+	transition-duration: 0.9s;
+	background: rgba(91, 157, 214, 0.76);
+}
+
+.page-body .page-content .result .pager-header{
+	    width: 850px;
+}
+.page-body .page-content .result .pager-header .header-info{
+	        font-family: 宋体;
+	        height: 20px;
+}
+
+.page-body .page-content .result .pager-header .header-nav{
+	margin: auto;
+	    width: 520px;
+}
+
+.page-body .page-content .result .pager-header .header-nav .clickbutton{
+	width: 60px;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	letter-spacing: 1.2px;
+	border: none;
+	text-transform: capitalize;
+	outline: none;
+	-webkit-border-radius: 4px;
+	background: #5b76d6;
+	color: #fff;
+	cursor: pointer;
+	transition-duration: 0.9s;
+}
+.page-body .page-content .result .pager-header .header-nav .clickbutton:hover{
+	-webkit-transition-duration: 0.9s;
+	transition-duration: 0.9s;
+	background: rgba(91, 157, 214, 0.76);
+}
+
+.page-body .page-content .result .pager-header .header-nav .nav-number{
+	    border: 1px solid white;
+	    color: #666666;
+	    font-family: Arial,Helvetica,sans-serif;
+	    padding: 4px 5px;
+	    outline: none;
+	    box-shadow: 3px 3px 10px #9a9b9d;
+		    width: 30px;
+			margin: 10px;
+}
