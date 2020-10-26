@@ -3,6 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iths.dao.IDepartmentDao">
+
+    <resultMap id="departmentMap" type="department">
+        <id column="departmentid" property="departmentid"/>
+        <result column="departmentname" property="departmentname"/>
+        <collection property="employees" ofType="employee">
+            <id column="employeeid" property="employeeid"/>
+            <result column="employeename" property="employeename"/>
+        </collection>
+    </resultMap>
+
     <!--查询所有-->
     <select id="queryAllDepartment" resultType="department">
         select * from department
@@ -26,4 +36,9 @@
         where
             departmentid = #{departmentid}
     </update>
+
+    <!--一对多查询部门下的所有员工-->
+    <select id="queryAll" resultMap="departmentMap">
+        select d.*,E.employeeid,E.employeename from employee E,department D where E.departmentid = D.departmentid
+    </select>
 </mapper>

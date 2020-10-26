@@ -29,9 +29,9 @@
                 <c:if test="${judgment.role=='2'}">
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/admin/jumpaddroom">添加会议室</a></li>
                 </c:if>
-                <li class="sidebar-menuitem"><a href="meetingrooms.jsp">查看会议室</a></li>
-                <li class="sidebar-menuitem"><a href="bookmeeting.jsp">预定会议</a></li>
-                <li class="sidebar-menuitem"><a href="searchmeetings.jsp">搜索会议</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/conferenceromm/jumpviewconferenceromm">查看会议室</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/scheduledmeeting/jumpbookmeeting">预定会议</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/searchmeetings/jumpsearchmeetings">搜索会议</a></li>
             </ul>
         </div>
     </div>

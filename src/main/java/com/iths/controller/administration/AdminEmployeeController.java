@@ -1,5 +1,6 @@
 package com.iths.controller.administration;
 
+import com.iths.pojo.Constant;
 import com.iths.pojo.Employee;
 import com.iths.pojo.PageBean;
 import com.iths.service.IEmployeeService;
@@ -20,10 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminEmployeeController {
 
 
-    public static  final  String STATUS_CLOSE= "-1";
-
-    //每页显示条数
-    public static final Integer ROWS = 6;
 
     @Autowired
     private IEmployeeService employeeService;
@@ -37,7 +34,7 @@ public class AdminEmployeeController {
         System.out.println(pageBean);
         System.out.println(employee);
         //页面条数
-        pageBean.setRows(ROWS);
+        pageBean.setRows(Constant.ROWS);
         PageBean<Employee> employeeByPage = employeeService.findEmployeeByPage(pageBean,employee);
 
         System.out.println(employeeByPage);
@@ -47,9 +44,10 @@ public class AdminEmployeeController {
     }
 
 
+    //关闭账号
     @RequestMapping("/close")
     public String closeAccount(Employee employee){
-        employee.setStatus(STATUS_CLOSE);
+        employee.setStatus(Constant.STATUS_CLOSE);
         employeeService.updateEmployeeByEmployeeid(employee);
         return "redirect:/admin/jumpsearchemployees";
     }

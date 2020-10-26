@@ -8,7 +8,7 @@
 body{
     width:1010px;
     margin:10px auto;
-    background-color:lightgray;
+    background-color:#ffff664a;
 }
 
 a{
@@ -38,7 +38,8 @@ a:visited{
     margin-bottom:10px;
     padding:10px;
 	boder: 1px solid #000;
-	background-color: #4b4b4a6e;
+	background-color: #0099cc4f;
+    box-shadow: 16px 20px 10px 0px #9a9b9d;
 }
 .page-header .header-banner{
     float:left;

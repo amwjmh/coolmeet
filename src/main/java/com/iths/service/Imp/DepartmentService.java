@@ -39,5 +39,10 @@ public class DepartmentService implements IDepartmentService {
         departmentDao.updateDepartmentByDepartmentid(department);
     }
 
+    @Override
+    public List<Department> queryAll() {
+        return departmentDao.queryAll();
+    }
+
 
 }

@@ -2,6 +2,7 @@ package com.iths.service.Imp;
 
 import com.iths.controller.administration.AdminEmployeeController;
 import com.iths.dao.IEmployeeDao;
+import com.iths.pojo.Constant;
 import com.iths.pojo.Employee;
 import com.iths.pojo.PageBean;
 import com.iths.service.IEmployeeService;
@@ -80,7 +81,7 @@ public class EmployeeService implements IEmployeeService {
 
 
         //计算偏移量
-        pageBean.setOffset((pageBean.getCurrentPage()-1)*AdminEmployeeController.ROWS);
+        pageBean.setOffset((pageBean.getCurrentPage()-1)* Constant.ROWS);
         System.out.println(pageBean);
         //页面数据
         List<Employee> employees = employeeDao.queryVaguePagingEmployee(pageBean,employee);
@@ -90,7 +91,7 @@ public class EmployeeService implements IEmployeeService {
         Integer totalEmployee = employeeDao.queryTotalEmployee(employee);
 
         //总页码
-        Integer totalPag = totalEmployee% AdminEmployeeController.ROWS == 0 ? totalEmployee/AdminEmployeeController.ROWS : totalEmployee/AdminEmployeeController.ROWS+1;
+        Integer totalPag = totalEmployee% Constant.ROWS == 0 ? totalEmployee/Constant.ROWS : totalEmployee/Constant.ROWS+1;
 
         employeePageBean.setList(employees);
         employeePageBean.setTotalCount(totalEmployee);

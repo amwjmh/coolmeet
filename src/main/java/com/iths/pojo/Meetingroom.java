@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author 黄小帅
  * @version 1.0
@@ -26,5 +28,8 @@ public class Meetingroom {
     private  String status;
     //描述
     private String description;
+
+
+
 
 }

@@ -60,25 +60,25 @@
         update employee
         <trim prefix="set" suffixOverrides=",">
             <if test="employeename != null and employeename != ''">
-                employeename = #{employeename}
+                employeename = #{employeename},
             </if>
             <if test="username != null and username != ''">
-                username = #{username}
+                username = #{username},
             </if>
             <if test="phone != null and phone != ''">
-                phone = #{phone}
+                phone = #{phone},
             </if>
             <if test="email != null and email != ''">
-                email = #{email}
+                email = #{email},
             </if>
             <if test="status != null and status != ''">
-                status = #{status}
+                status = #{status},
             </if>
             <if test="departmentid != null and departmentid != ''">
-                departmentid = #{departmentid}
+                departmentid = #{departmentid},
             </if>
             <if test="password != null and password != ''">
-                password = #{password}
+                password = #{password},
             </if>
             <if test="role != null and role != ''">
                 role = #{role}

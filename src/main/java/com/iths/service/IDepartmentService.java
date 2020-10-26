@@ -18,4 +18,6 @@ public interface IDepartmentService {
     void deleteDepartment(Integer departmentid);
 
     void updateDepartment(Department department);
+
+    List<Department> queryAll();
 }

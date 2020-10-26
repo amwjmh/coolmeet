@@ -4,17 +4,22 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tail.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css"/>
     </head>
     <body>
         <%@include file="top.jsp"%>
         <%@include file="leftmenubar.jsp"%>
-            <div class="page-content">
-                <div class="content-nav">
-                    会议预定 > 查看会议室
-                </div>
-                <table class="listtable">
-                    <caption>所有会议室:</caption>
+        <div class="page-content">
+            <div class="content-nav">
+                会议预定 > 查看会议室
+            </div>
+
+            <table class="listtable" cellpadding="0" cellspacing="0">
+                <caption>所有会议室:</caption>
+
+                <thead>
                     <tr class="listheader">
                         <th>门牌编号</th>
                         <th>会议室名称</th>
@@ -22,45 +27,29 @@
                         <th>当前状态</th>
                         <th>操作</th>
                     </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="meetingroom" items="${meetingrooms}">
                     <tr>
-                        <td>101</td>
-                        <td>第一会议室</td>
-                        <td>10</td>
-                        <td>启用</td>
+                        <td>${meetingroom.roomnum}</td>
+                        <td>${meetingroom.roomname}</td>
+                        <td>${meetingroom.capacity}</td>
+                        <c:if test="${meetingroom.status == 0}">
+                        <td>已占用</td>
+                        </c:if>
+                        <c:if test="${meetingroom.status == 1}">
+                            <td>启用</td>
+                        </c:if>
                         <td>
-                            <a class="clickbutton" href="roomdetails.jsp">查看详情</a>
+                            <a class="clickbutton" href="${pageContext.request.contextPath}/conferenceromm/roomdetails?roomid=${meetingroom.roomid}">修改</a>
+                            <a class="clickbutton" href="${pageContext.request.contextPath}/conferenceromm/deletemeetingroom?roomid=${meetingroom.roomid}">删除</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>102</td>
-                        <td>第二会议室</td>
-                        <td>15</td>
-                        <td>启用</td>
-                        <td>
-                            <a class="clickbutton" href="roomdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>103</td>
-                        <td>综合会议室</td>
-                        <td>40</td>
-                        <td>停用</td>
-                        <td>
-                            <a class="clickbutton" href="roomdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>213</td>
-                        <td>Mini会议室1</td>
-                        <td>5</td>
-                        <td>删除</td>
-                        <td>
-                            <a class="clickbutton" href="roomdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                    </c:forEach>
+                </tbody>
+            </table>
         </div>
-        <%@include file="tail.jsp"%>
+        </div>
+        <%--<%@include file="tail.jsp"%>--%>
     </body>
 </html>

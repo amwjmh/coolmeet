@@ -1,5 +1,6 @@
 package com.iths.controller.management;
 
+import com.iths.pojo.Constant;
 import com.iths.pojo.Department;
 import com.iths.pojo.Employee;
 import com.iths.service.IDepartmentService;
@@ -25,8 +26,7 @@ import java.util.List;
 
 public class ManagementContrller {
 
-    //未审批默认为0
-    public static final String STATUS_DEFAULT = "0";
+
 
     @Autowired
     private IDepartmentService departmentService;
@@ -45,9 +45,9 @@ public class ManagementContrller {
     }
 
     //用户注册
-    @RequestMapping("/addaddEmployee")
+    @RequestMapping("/addEmployee")
     public String addEmployee(Employee employee, Model model){
-        employee.setStatus(STATUS_DEFAULT);
+        employee.setStatus(Constant.STATUS_DEFAULT);
         System.out.println("添加用户"+employee);
         boolean b = employeeService.addEmployee(employee);
         return "redirect:/management/employeeRegistration";

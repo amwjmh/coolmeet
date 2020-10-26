@@ -77,7 +77,7 @@
 
     <div class="page-content">
         <div class="content-nav">人员管理 > 员工注册</div>
-        <form method="post" id="signupForm" action="${pageContext.request.contextPath}/management/addaddEmployee" name="form" onsubmit="return registered(this);" >
+        <form method="post" id="signupForm" action="${pageContext.request.contextPath}/management/addEmployee" name="form" onsubmit="return registered(this);" >
             <div class="fieldContainer">
                 <div class="formRow">
                     <div class="label">

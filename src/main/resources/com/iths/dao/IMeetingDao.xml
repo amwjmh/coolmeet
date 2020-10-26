@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iths.dao.IMeetingDao">
+    <insert id="insertMeeting" parameterType="meeting" useGeneratedKeys="true"  >
+      <selectKey keyProperty="meetingid" keyColumn="meetingid" resultType="Integer" order="AFTER">
+          select last_insert_id();
+      </selectKey>
+
+insert into
+      meeting(meetingname,roomid,reservationistid,numberofparticipants,starttime,endtime,reservationtime,canceledtime,description,status)
+values
+	  (#{meetingname},#{roomid},#{reservationistid},#{numberofparticipants},#{starttime},#{endtime},#{reservationtime},#{canceledtime},#{description},#{status});
+
+    </insert>
+
+
+</mapper>

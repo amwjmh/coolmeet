@@ -2,6 +2,8 @@ package com.iths.service;
 
 import com.iths.pojo.Meetingroom;
 
+import java.util.List;
+
 /**
  * @author 黄小帅
  * @version 1.0
@@ -11,4 +13,10 @@ public interface IMeetingroomService {
 
     //新增会议室
     void insertMeetingroom(Meetingroom meetingroom);
+
+    List<Meetingroom> queryAllMeetingroom(Meetingroom meetingroom);
+
+    void updateMeetingroomByroomid(Meetingroom meetingroom);
+
+    void  deleteMeetingroomByroomid(Meetingroom meetingroom);
 }

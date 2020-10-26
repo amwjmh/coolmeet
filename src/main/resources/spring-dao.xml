@@ -33,4 +33,14 @@
         <property name="sqlSessionFactoryBeanName" value="sessionFactoryBean"/>
         <property name="basePackage" value="com.iths.dao"/>
     </bean>
+
+    <!--操作日期转换-->
+    <bean id="simpleDateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm"/>
+    </bean>
+
+    <bean id="dateConversionUtils" class="com.iths.utils.DateConversionUtils">
+        <property name="simpleDateFormat" ref="simpleDateFormat"/>
+    </bean>
+
 </beans>

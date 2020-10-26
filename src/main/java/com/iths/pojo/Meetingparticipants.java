@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author 黄小帅
  * @version 1.0
@@ -13,7 +15,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class meetingparticipants {
+public class Meetingparticipants {
+
     private Integer meetingid;
+
     private Integer employeeid;
 }

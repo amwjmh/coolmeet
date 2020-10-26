@@ -1,6 +1,7 @@
 package com.iths.controller.administration;
 
 import com.iths.controller.management.ManagementContrller;
+import com.iths.pojo.Constant;
 import com.iths.pojo.Employee;
 import com.iths.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import java.util.List;
 @RequestMapping("/admin")
 public class ApprovalRegistrationController {
 
-    public static  final  String STATUS_ADOPT = "1";
+
 
     @Autowired
     private IEmployeeService employeeService;
@@ -32,7 +33,7 @@ public class ApprovalRegistrationController {
      */
     @RequestMapping("/approveaccount")
     public String approveaccount(Model model){
-        List<Employee> employees = employeeService.queryEmployeeByStatus(ManagementContrller.STATUS_DEFAULT);
+        List<Employee> employees = employeeService.queryEmployeeByStatus(Constant.STATUS_DEFAULT);
         model.addAttribute("emps",employees);
         System.out.println(employees);
         return "approveaccount";
@@ -45,7 +46,7 @@ public class ApprovalRegistrationController {
      */
     @RequestMapping("/adopt")
     public String approvalAdopt(Employee employee){
-        employee.setStatus(STATUS_ADOPT);
+        employee.setStatus(Constant.STATUS_ADOPT);
         System.out.println(employee);
         employeeService.updateEmployeeByEmployeeid(employee);
         return "forward:/admin/approveaccount";

@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iths.dao.IMeetingroomDao">
 
+
+
     <!--新增-->
     <insert id="insertMeetingroom" parameterType="meetingroom">
         insert into
@@ -11,4 +13,49 @@
           values
           (#{roomnum},#{roomname},#{capacity},#{status},#{description})
     </insert>
+
+    <select id="queryAllMeetingroom" parameterType="meetingroom" resultType="meetingroom">
+        select * from meetingroom
+        <where>
+            <trim suffixOverrides=",">
+                <if test="roomid != null and roomid != ''">
+                    roomid = #{roomid}
+                </if>
+                <if test="roomname != null and roomname != ''">
+                    roomid = #{roomname}
+                </if>
+                <if test="capacity != null and capacity != ''">
+                    capacity = #{capacity}
+                </if>
+                <if test="status != null and status != ''">
+                    status = #{status}
+                </if>
+
+            </trim>
+        </where>
+    </select>
+
+
+    <update id="updateMeetingroomByroomid" parameterType="meetingroom">
+        update meetingroom
+        <trim prefix="set" suffixOverrides=",">
+            <if test="roomnum != null and roomnum != ''">
+                roomnum = #{roomnum},
+            </if>
+            <if test="roomname != null and roomname != ''">
+                roomname = #{roomname},
+            </if>
+            <if test="capacity != null and capacity != ''">
+                capacity = #{capacity}
+            </if>
+        </trim>
+        where roomid = #{roomid}
+    </update>
+
+    <delete id="deleteMeetingroomByroomid" parameterType="meetingroom">
+        delete from meetingroom where roomid = #{roomid}
+
+    </delete>
+    
+
 </mapper>

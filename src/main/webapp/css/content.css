@@ -60,9 +60,9 @@
 
 .page-body .page-content .fieldContainer .formRow .field input{
 	border: 1px solid white;
-	    color: #666666;
+	    color: black;
 	    font-family: Arial,Helvetica,sans-serif;
-	    font-size: 22px;
+	    font-size: 18px;
 	    padding: 4px 5px;
 	    outline: none;
 		box-shadow: 3px 3px 10px #9a9b9d;
@@ -123,6 +123,13 @@
 	    vertical-align: inherit;
 	    border-color: inherit;
 }
+.page-body .page-content .listtable tbody tr:nth-of-type(odd) {
+	background: #f4f4f4;
+}
+
+.page-body .page-content .listtable tbody tr:nth-of-type(even) {
+	background: #fff;
+}
 
 .page-body .page-content .listtable tbody tr td{
 	padding: 5px;
@@ -134,7 +141,7 @@
 .page-body .page-content .listtable .clickbutton {
     text-align: center;
     font-size: 15px;
-    padding: 10px 10px;
+    padding: 5px 5px;
     letter-spacing: 1.2px;
     border: none;
     text-transform: capitalize;
@@ -311,4 +318,99 @@
 	    box-shadow: 3px 3px 10px #9a9b9d;
 		    width: 30px;
 			margin: 10px;
+}
+
+/* 会议马宝 */
+.page-body .page-content .fieldContainer .reserve{
+	    height: 35px;
+	    padding: 10px;
+	    position: relative;
+	    margin: auto;
+		float: left;
+		padding-bottom: 50px;
+}
+.page-body .page-content .fieldContainer .reserve .label {
+    float: left;
+    /* padding: 0 20px 0 0; */
+    text-align: left;
+    width: 110px;
+}
+.page-body .page-content .fieldContainer .reserve .field {
+    float: left;
+}
+
+.page-body .page-content .fieldContainer .reserve #description {
+    width: 350px;
+        height: 90px;
+}
+
+.page-body .page-content .fieldContainer .reserve .field #divfrom{
+	float: left;
+}
+.page-body .page-content .fieldContainer .reserve .field #divoperator{
+	    width: 50px;
+	    height: 30px;
+	    float: left;
+		margin-left: 25px;
+}
+.page-body .page-content .fieldContainer .reserve .field #divto{
+	        float: left;
+    margin-left: 25px;
+}
+
+.page-body .page-content .fieldContainer .reserve .field #selSelectedEmployees{
+	
+}
+
+
+.page-body .page-content .fieldContainer .reserve .label label {
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 35px;
+    font-weight: 600;
+}
+
+.page-body .page-content .fieldContainer .reserve .field input {
+    border: 1px solid white;
+    color: black;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    padding: 4px 5px;
+    outline: none;
+    box-shadow: 3px 3px 10px #9a9b9d;
+}
+.page-body .page-content .fieldContainer .reserve .field select {
+    width: 200px;
+    height: 30px;
+    /* margin-bottom: 20px; */
+    box-shadow: 3px 3px 10px #9a9b9d;
+	float: left;
+}
+
+.page-body .page-content .fieldContainer .reserve .field #selEmployees,#selSelectedEmployees{
+	    padding-bottom: 100px;
+	    font-size: 16px;	
+}
+/* 会议搜索 */
+.page-body .page-content .fieldContainer .meetingButton{
+	
+	    height: 35px;
+	    float: left;
+	    margin: auto 360px;
+} 
+.page-body .page-content .fieldContainer .meetingButton input {
+    width: 60px;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 10px;
+    letter-spacing: 1.2px;
+    border: none;
+    text-transform: capitalize;
+    outline: none;
+    -webkit-border-radius: 4px;
+    background: #5b76d6;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.9s;
 }

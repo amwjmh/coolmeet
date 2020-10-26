@@ -1,6 +1,9 @@
 package com.iths.dao;
 
+import com.iths.pojo.Meeting;
 import com.iths.pojo.Meetingroom;
+
+import java.util.List;
 
 /**
  * @author 黄小帅
@@ -12,5 +15,14 @@ public interface IMeetingroomDao {
 
     //增加会议室
     void insertMeetingroom(Meetingroom meetingroom);
+
+    //查询会议室
+    List<Meetingroom> queryAllMeetingroom(Meetingroom meetingroom);
+
+    //修改
+    void updateMeetingroomByroomid(Meetingroom meetingroom);
+
+    //删除
+    void deleteMeetingroomByroomid(Meetingroom meetingroom);
 
 }

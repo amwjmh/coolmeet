@@ -32,4 +32,8 @@ public interface IEmployeeService {
     PageBean<Employee> findEmployeeByPage(PageBean<Employee> pageBean,Employee employee);
 
 
+
+
+
+
 }

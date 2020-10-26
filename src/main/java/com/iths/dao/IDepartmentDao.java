@@ -26,4 +26,6 @@ public interface IDepartmentDao {
     //根据id修改
     void updateDepartmentByDepartmentid(Department department);
 
+    List<Department> queryAll();
+
 }

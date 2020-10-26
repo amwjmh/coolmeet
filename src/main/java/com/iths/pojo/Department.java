@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author 黄小帅
  * @version 1.0
@@ -18,5 +20,8 @@ public class Department {
     private Integer departmentid;
    //部门名称
     private  String departmentname;
+
+
+    private List<Employee> employees;
 
 }
