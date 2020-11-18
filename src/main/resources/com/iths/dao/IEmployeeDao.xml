@@ -112,6 +112,7 @@
           </if>
                 limit #{pag.offset},#{pag.rows}
     </select>
+
     <!--查询总记录数-->
     <select id="queryTotalEmployee" parameterType="employee" resultType="Integer">
         select COUNT(employeeid) from employee

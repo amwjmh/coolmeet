@@ -56,4 +56,6 @@ public interface IEmployeeDao {
      * @return
      */
     Integer queryTotalEmployee(Employee employee);
+
+
 }

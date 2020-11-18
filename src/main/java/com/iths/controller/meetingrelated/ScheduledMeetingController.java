@@ -25,6 +25,7 @@ import java.util.List;
  * @author 黄小帅
  * @version 1.0
  * @date 2020/10/19 9:52
+ * 新增会议
  */
 @Controller
 @RequestMapping("/scheduledmeeting")
@@ -38,6 +39,11 @@ public class ScheduledMeetingController {
     @Autowired
     private DateConversionUtils dateConversionUtils;
 
+    /**
+     * 查询所有部门和员工
+     * @param model
+     * @return
+     */
     @RequestMapping("/jumpbookmeeting")
     public  String jumpBookmeeting(Model model){
         List<Meetingroom> meetingrooms = meetingroomService.queryAllMeetingroom(null);
@@ -52,11 +58,12 @@ public class ScheduledMeetingController {
     public String addMeeting(Meeting meeting, String st, String et , Integer[] mps, HttpSession session) throws ParseException {
 
         System.out.println("/d"+st+"====="+et);
+        System.out.println(meeting);
         Employee judgment = (Employee) session.getAttribute("judgment");
         meeting.setReservationistid(judgment.getEmployeeid());
-        meeting.setStarttime(dateConversionUtils.conversion(st));
-        meeting.setEndtime(dateConversionUtils.conversion(et));
-        meeting.setReservationtime(new Date());
+        meeting.setStarttime(dateConversionUtils.conversionDate(st));
+        meeting.setEndtime(dateConversionUtils.conversionDate(et));
+        meeting.setReservationtime(dateConversionUtils.converString(new Date()));
         System.out.println(meeting);
 
         Integer integer = meetingService.insertMeeting(meeting, mps);

@@ -2,7 +2,9 @@ package com.iths.controller;
 
 import com.iths.pojo.Employee;
 import com.iths.service.IEmployeeService;
+import com.wf.captcha.utils.CaptchaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,15 +26,36 @@ public class LoginController {
     @Autowired
     private IEmployeeService employeeService;
 
+
+    /**
+     * 验证码
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/captcha")
+    public void log(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        CaptchaUtil.out(100,45,4,request, response);
+    }
+
     //用户登入
     @RequestMapping("/login")
-    public String login(String username,String password, HttpSession session, Model model){
+    public String login(String username, String password, String verCode, HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model){
+//验证验证码是否正确
+        if (!CaptchaUtil.ver(verCode, request)) {
+            CaptchaUtil.clear(request);  // 清除session中的验证码
+            model.addAttribute("vercode","验证码错误！");
+            return "forward:/";
+        }
 
         Employee employee = employeeService.employeeLogin(username,password);
+
+
         //没有此用户
         if (employee == null) {
             System.out.println("没有此用户");
 //            存入request
+
             model.addAttribute("tips","用户或密码错误！");
             return "forward:/";
         }else {

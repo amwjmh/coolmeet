@@ -3,6 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iths.dao.IMeetingDao">
+
+    <resultMap id="meetingMap" type="meeting">
+        <id property="meetingid" column="meetingid"/>
+        <result property="meetingname" column="meetingname"/>
+        <result property="starttime" column="starttime"/>
+        <result property="endtime" column="endtime"/>
+        <result property="reservationtime" column="reservationtime"/>
+        <result property="description" column="description"/>
+        <result property="status" column="status"/>
+        <association property="employee" javaType="employee">
+            <result property="employeename" column="employeename"/>
+        </association>
+        <association property="meetingroom" javaType="meetingroom">
+            <result property="roomname" column="roomname"/>
+        </association>
+    </resultMap>
+
     <insert id="insertMeeting" parameterType="meeting" useGeneratedKeys="true"  >
       <selectKey keyProperty="meetingid" keyColumn="meetingid" resultType="Integer" order="AFTER">
           select last_insert_id();
@@ -14,6 +31,102 @@ values
 	  (#{meetingname},#{roomid},#{reservationistid},#{numberofparticipants},#{starttime},#{endtime},#{reservationtime},#{canceledtime},#{description},#{status});
 
     </insert>
+
+
+
+    <select id="queryVaguePagingMeeting" resultMap="meetingMap">
+        select
+              M.meetingid,M.`meetingname`,MR.`roomname`,M.`starttime`,M.`endtime`,M.`reservationtime`,E.`employeename`,M.status
+        from
+              meeting M,meetingroom MR,employee E
+        <where>
+            and M.`roomid` = MR.`roomid` and M.`reservationistid`=E.`employeeid`
+            <if test="mee.meetingname != null and mee.meetingname != ''">
+                and meetingname like "%"#{mee.meetingname}"%"
+            </if>
+        </where>
+        limit #{pag.offset},#{pag.rows}
+    </select>
+
+<!--查询总会议数-->
+    <select id="queryTotalMeeting" parameterType="meeting" resultType="Integer">
+        select count(meetingid) from meeting
+        <where>
+            <if test="meetingname != null and meetingname != ''">
+                and  meetingname = #{meetingname}
+            </if>
+        </where>
+    </select>
+<!--查询当前会议的员工-->
+    <select id="queryParticipatingEmployees" resultType="employee" parameterType="Integer">
+        select
+            E.*
+        from
+            employee E,meetingparticipants MPP,meeting M
+        where
+            MPP.`meetingid` = M.`meetingid`
+            and
+            E.`employeeid` = MPP.`employeeid`
+            and
+	        M.`meetingid` = #{id}
+    </select>
+
+<!--查询未来7需要参加的会议和取的会议-->
+    <select id="queryFutureMeetings" resultMap="meetingMap">
+        select
+          M.`meetingid`,M.`meetingname`,MR.`roomname`,M.`starttime`,M.`endtime`,M.`description`
+        from
+          employee E,meetingparticipants MPP,meeting M,meetingroom MR
+        <where>
+          and MPP.`meetingid` = M.`meetingid`
+        and
+          E.`employeeid` = MPP.`employeeid`
+        and
+          M.`roomid` = MR.`roomid`
+        and
+          E.`employeeid` = #{id}
+        and
+          DATE(M.starttime) &gt; CURDATE()
+        and
+          DATE(M.starttime) &lt;= DATE_ADD(CURDATE(), interval #{day} day)
+        and
+          M.`roomid` = MR.`roomid`
+        and
+          M.`status` = #{status};
+        </where>
+    </select>
+
+
+    <select id="queryMeetingByid" resultType="meeting" parameterType="Integer">
+        select * from meeting M
+        <where>
+           and M.`meetingid` = #{id}
+        </where>
+    </select>
+
+    <update id="updateMeetingByid"  parameterType="meeting">
+       update
+            meeting M
+        set
+            M.`description` = #{description},
+            M.`status` = #{status}
+
+        where
+            M.`meetingid` = #{meetingid}
+    </update>
+
+
+    <select id="queryMeetingByEmpid" resultMap="meetingMap" parameterType="Integer">
+        select
+              M.`meetingid`,M.`meetingname`,MR.`roomname`,M.`starttime`,M.`endtime`,M.`reservationtime`,M.`status`
+        from
+              meeting M,meetingroom MR
+        where
+              M.`roomid` = MR.`roomid`
+        and
+              M.`reservationistid` = #{id};
+
+    </select>
 
 
 </mapper>

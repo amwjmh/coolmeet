@@ -5,6 +5,7 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
+        <%@include file="/WEB-INF/ico.jsp"%>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tail.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css"/>
@@ -36,7 +37,7 @@
                             <label for="employeename">姓名:</label>
                         </div>
                         <div class="field">
-                            <input type="text" id="employeename" name="employeename" <c:if test="${feedback!=null}">value="${feedback.employeename}" </c:if> maxlength="20"/>
+                            <input type="text" id="employeename" name="employeename" <c:if test="${feedback_emp!=null}">value="${feedback_emp.employeename}" </c:if> maxlength="20"/>
                         </div>
                     </div>
                     <div class="searchformRow">
@@ -44,7 +45,7 @@
                             <label for="username">账号名:</label>
                         </div>
                         <div class="field">
-                            <input type="text" id="username" name="username" <c:if test="${feedback!=null}">value="${feedback.username}" </c:if> maxlength="20" />
+                            <input type="text" id="username" name="username" <c:if test="${feedback_emp!=null}">value="${feedback_emp.username}" </c:if> maxlength="20" />
                         </div>
                     </div>
 
@@ -56,7 +57,7 @@
 
 
 
-                            <c:if test="${feedback.status == null || feedback.status == 1}">
+                            <c:if test="${feedback_emp.status == null || feedback_emp.status == 1}">
 
                                     <input type="radio"  name="status" value="1" checked="checked"/><label>已批准</label>
                                     <input type="radio"  name="status" value="0"/><label>待审批</label>
@@ -65,13 +66,13 @@
                             </c:if>
 
 
-                                <c:if test="${feedback.status == 0}">
+                                <c:if test="${feedback_emp.status == 0}">
                                     <input type="radio"  name="status" value="1"><label>已批准</label>
                                     <input type="radio"  name="status" value="0" checked="checked"/><label>待审批</label>
                                     <input type="radio"  name="status" value="-1"/><label>已关闭</label>
                                 </c:if>
 
-                                <c:if test="${feedback.status == -1}">
+                                <c:if test="${feedback_emp.status == -1}">
                                     <input type="radio"  name="status" value="1"><label>已批准</label>
                                     <input type="radio"  name="status" value="0"/><label>待审批</label>
                                     <input type="radio"  name="status" value="-1" checked="checked"/><label>已关闭</label>
@@ -101,7 +102,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <C:forEach var="item" items="${pagebean.list}">
+                <C:forEach var="item" items="${pagebean_emp.list}">
                     <tr>
                         <td>${item.employeename}</td>
                         <td>${item.username}</td>
@@ -120,17 +121,17 @@
             <div class="result">
                 <div class="pager-header">
                     <div class="header-info">
-                        共<span class="info-number"><strong><i>${pagebean.totalCount}</i></strong></span>条结果，
-                        分成<span class="info-number"><strong><i>${pagebean.totalPage}</i></strong></span>页显示，
-                        当前第<span class="info-number"><strong><i>${pagebean.currentPage}</i></strong></span>页
+                        共<span class="info-number"><strong><i>${pagebean_emp.totalCount}</i></strong></span>条结果，
+                        分成<span class="info-number"><strong><i>${pagebean_emp.totalPage}</i></strong></span>页显示，
+                        当前第<span class="info-number"><strong><i>${pagebean_emp.currentPage}</i></strong></span>页
                     </div>
 
 
                     <div class="header-nav">
                         <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=1" class="clickbutton">首页</a>
-                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean.currentPage-1}" class="clickbutton">上页</a>
-                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean.currentPage+1}" class="clickbutton">下页</a>
-                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean.totalPage}" class="clickbutton">末页</a>
+                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.currentPage-1}" class="clickbutton">上页</a>
+                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.currentPage+1}" class="clickbutton">下页</a>
+                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.totalPage}" class="clickbutton">末页</a>
                         跳到第<input type="text" id="pagenum"  onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" class="nav-number"/>页
                         <input id="jump" type="button" class="clickbutton" value="跳转"/>
                     </div>

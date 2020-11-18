@@ -39,6 +39,6 @@
 
     <!--一对多查询部门下的所有员工-->
     <select id="queryAll" resultMap="departmentMap">
-        select d.*,E.employeeid,E.employeename from employee E,department D where E.departmentid = D.departmentid
+        select D.*,E.employeeid,E.employeename from employee E,department D where E.departmentid = D.departmentid
     </select>
 </mapper>

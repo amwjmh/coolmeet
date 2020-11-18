@@ -31,6 +31,10 @@ public class AdminEmployeeController {
         if (pageBean.getCurrentPage() <= 0){
             pageBean.setCurrentPage(1);
         }
+
+        if(employee.getStatus() == null || employee.getStatus() == ""){
+            employee.setStatus("1");
+        }
         System.out.println(pageBean);
         System.out.println(employee);
         //页面条数
@@ -38,8 +42,9 @@ public class AdminEmployeeController {
         PageBean<Employee> employeeByPage = employeeService.findEmployeeByPage(pageBean,employee);
 
         System.out.println(employeeByPage);
-        model.addAttribute("pagebean",employeeByPage);
-        model.addAttribute("feedback",employee);
+        model.addAttribute("pagebean_emp",employeeByPage);
+
+        model.addAttribute("feedback_emp",employee);
         return "searchemployees";
     }
 

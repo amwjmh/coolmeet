@@ -4,6 +4,7 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
+        <%@include file="/WEB-INF/ico.jsp"%>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tail.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css"/>
@@ -221,7 +222,8 @@
                         </div>
                     </div>
                     <div class="signupButton">
-                        <input type="submit" class="clickbutton" value="定预"/>
+                        <input type="hidden" name="reservationistid" value="${judgment.employeeid}">
+                        <input type="submit" class="clickbutton" value="预定"/>
                         <input type="reset" class="clickbutton" value="重置"/>
                     </div>
 

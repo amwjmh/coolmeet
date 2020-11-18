@@ -397,7 +397,7 @@
 	
 	    height: 35px;
 	    float: left;
-	    margin: auto 360px;
+	    /*margin: auto 360px;*/
 } 
 .page-body .page-content .fieldContainer .meetingButton input {
     width: 60px;
@@ -413,4 +413,26 @@
     color: #fff;
     cursor: pointer;
     transition-duration: 0.9s;
+}
+
+/*参与员工*/
+.click{
+	width: 60px;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	letter-spacing: 1.2px;
+	border: none;
+	text-transform: capitalize;
+	outline: none;
+	-webkit-border-radius: 4px;
+	background: #5b76d6;
+	color: #fff;
+	cursor: pointer;
+	transition-duration: 0.9s;
+}
+.click:hover{
+	-webkit-transition-duration: 0.9s;
+	transition-duration: 0.9s;
+	background: rgba(91, 157, 214, 0.76);
 }

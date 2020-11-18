@@ -28,17 +28,23 @@ public class Meeting {
     //发起人
     private Integer reservationistid;
     //开始时间
-    private Date starttime;
+    private String starttime;
     //*结束时间
-    private Date endtime;
+    private String endtime;
     //* 预约时间
-    private Date reservationtime;
+    private String reservationtime;
 
     //* canceledtume   取消时间
-    private Date canceledtime;
+    private String canceledtime;
     //* 描述
     private String  description;
-    //* 职位
+    //* 状态
     private String status;
+
+    //
+    private Employee employee;
+
+    private Meetingroom meetingroom;
+
 
 }

@@ -37,6 +37,11 @@ public class NoLoginHandlerInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        //验证码
+        if (requestURI.indexOf(contextPath+"/employee/captcha")>=0){
+            return true;
+        }
+
         //不是
         // 获取session中用户信息,判断是否登入；
         Employee currentuser = (Employee) request.getSession(true).getAttribute("judgment");

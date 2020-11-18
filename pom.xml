@@ -109,6 +109,13 @@
       <version>2.11.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.github.whvcse</groupId>
+      <artifactId>easy-captcha</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+
+
   </dependencies>
 
 

@@ -4,10 +4,10 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css"/>
-        <style type="text/css">
-            
-        </style>
+        <<%@include file="/WEB-INF/ico.jsp"%>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tail.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css"/>
     </head>
     <body>
         <%@include file="top.jsp"%>
@@ -140,6 +140,6 @@
                 </table>
             </div>
         </div>
-        <%@include file="tail.jsp"%>
+        <%--<%@include file="tail.jsp"%>--%>
     </body>
 </html>

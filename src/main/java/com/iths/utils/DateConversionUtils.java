@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
  * @author 黄小帅
  * @version 1.0
  * @date 2020/10/24 14:59
- * String去T转Date ---datetime-local -> Date
+ *
  */
 public class DateConversionUtils {
 
@@ -19,13 +19,30 @@ public class DateConversionUtils {
         this.simpleDateFormat = simpleDateFormat;
     }
 
-    private Date time = null;
 
-    public  Date conversion(String ts) throws ParseException {
-        //转换
-        time = simpleDateFormat.parse(ts.replace("T", " "));
+    /**
+     * String去T转Date ---datetime-local -> Date
+     * @param ts
+     * @return
+     * @throws ParseException
+     */
+    public  String conversionDate(String ts) throws ParseException {
 
-        return time;
+        return  ts.replace("T", " ");
+
+
     }
+
+    /**
+     * Date转String
+     * @param ts
+     * @return
+     * @throws ParseException
+     */
+    public  String converString(Date ts) throws ParseException {
+        String parse = simpleDateFormat.format(ts);
+        return parse;
+    }
+
 
 }

@@ -12,9 +12,12 @@ public class Constant {
     //未审批默认为0
     public static final String STATUS_DEFAULT = "0";
 
-    //状态用户关闭  会议室删除
+    //状态用户关闭  会议室删除  , 取消会议
     public static  final  String STATUS_CLOSE= "-1";
 
     //每页显示条数
     public static final Integer ROWS = 6;
+
+    //未来需要参加会议
+    public static final Integer FUTURE_TIME = 7;
 }
