@@ -2,7 +2,8 @@
 SQLyog Enterprise v12.09 (64 bit)
 MySQL - 5.5.40 : Database - meeting
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -126,3 +127,24 @@ insert  into `meetingroom`(`roomid`,`roomnum`,`roomname`,`capacity`,`status`,`de
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+alter table employee add  foreign key (departmentid) references department(departmentid);
+
+
+alter table meetingparticipants add  foreign key (employeeid) references employee(employeeid);
+
+
+alter table meetingparticipants add  foreign key (meetingid) references meeting(meetingid);
+
+alter table meeting add  foreign key (roomid) references meetingroom(roomid);
+
+-- 级联
+
+alter table meetingparticipants add foreign key (meetingid) references meeting(meetingid)on delete cascade on update cascade;
+
+alter table meetingparticipants add foreign key (employeeid) references employee(employeeid)on delete cascade on update cascade;
+
+
+alter table meeting add foreign key (roomid) references meetingroom(roomid)on delete cascade on update cascade;
+
+alter table employee add foreign key (departmentid) references department(departmentid)on delete cascade on update cascade;
+
