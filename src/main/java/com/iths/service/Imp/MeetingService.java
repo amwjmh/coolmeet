@@ -44,6 +44,7 @@ public class MeetingService implements IMeetingService {
             mparticipants.setEmployeeid(mp);
             lists.add(mparticipants);
         }
+
         System.out.println(lists);
         meetingparticipantsDao.insertMeetingparticipants(lists);
         return integer;

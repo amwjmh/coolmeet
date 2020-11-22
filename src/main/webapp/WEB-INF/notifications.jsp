@@ -36,7 +36,7 @@
                             <td>${item.starttime}</td>
                             <td>${item.endtime}</td>
                             <td>
-                                <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
+                                <a class="clickbutton" href="${pageContext.request.contextPath}/searchmeetings/participatingemployees?meetingid=${item.meetingid}">查看员工</a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -64,7 +64,7 @@
                             <td>${item.endtime}</td>
                             <td>${item.description}</td>
                             <td>
-                                <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
+                                <a class="clickbutton" href="${pageContext.request.contextPath}/searchmeetings/participatingemployees?meetingid=${item.meetingid}">参与员工</a>
                             </td>
                         </tr>
                     </c:forEach>

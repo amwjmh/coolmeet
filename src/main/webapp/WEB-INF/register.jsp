@@ -80,7 +80,7 @@
         <div class="content-nav">人员管理 > 员工注册</div>
         <form method="post" id="signupForm" action="${pageContext.request.contextPath}/management/addEmployee" name="form" onsubmit="return registered(this);" >
             <div class="fieldContainer">
-                <div class="formRow">
+                <div class="formRo">
                     <div class="label">
                         <label for="employeename">姓名:</label>
                     </div>
@@ -89,8 +89,8 @@
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
+                <div class="formRo">
+                    <div class="labe">
                         <label for="username">账户名:</label>
                     </div>
                     <div class="field">
@@ -98,8 +98,8 @@
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
+                <div class="formRo">
+                    <div class="labe">
                         <label for="password">密码:</label>
                     </div>
                     <div class="field">
@@ -107,8 +107,8 @@
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
+                <div class="formRo">
+                    <div class="labe">
                         <label for="confirm">确认密码:</label>
                     </div>
                     <div class="field">
@@ -116,8 +116,8 @@
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
+                <div class="formRo">
+                    <div class="labe">
                         <label for="phone">联系电话:</label>
                     </div>
                     <div class="field">
@@ -125,8 +125,8 @@
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
+                <div class="formRo">
+                    <div class="labe">
                         <label for="email">邮箱:</label>
                     </div>
                     <div class="field">
@@ -134,8 +134,8 @@
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
+                <div class="formRo">
+                    <div class="labe">
                         <label for="departmentid">所在部门:</label>
                     </div>
                     <div class="field">
@@ -146,7 +146,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="signupButton">
+                <div class="signup">
                     <input type="submit"  id="submit" value="注册">
                 </div>
             </div>

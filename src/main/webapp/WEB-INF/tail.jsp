@@ -10,7 +10,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="page-footer">
     <hr/>
-    更多问题，欢迎联系<a href="mailto:webmaster@eeg.com">管理员</a>
-    <img src="${pageContext.request.contextPath}/images/footer.png" alt="CoolMeeting"/>
+    <span>更多问题，欢迎联系</span><a href="mailto:spq133@126.com">管理员</a>
 </div>
 

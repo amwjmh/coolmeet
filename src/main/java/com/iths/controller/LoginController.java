@@ -49,8 +49,7 @@ public class LoginController {
         }
 
         Employee employee = employeeService.employeeLogin(username,password);
-
-
+        System.out.println("--"+employee);
         //没有此用户
         if (employee == null) {
             System.out.println("没有此用户");
@@ -58,12 +57,12 @@ public class LoginController {
 
             model.addAttribute("tips","用户或密码错误！");
             return "forward:/";
-        }else {
-            if (employee.getStatus() == "0"){
-                System.out.println("此用户未通过审核！");
+        }else
+            if (employee.getRole().equals("0" )){
+
                 model.addAttribute("warning","此用户未通过审核！");
                 return "forward:/";
-            }
+
         }
         //存入session，用于判断用户是否登入
         session.setAttribute("judgment",employee);

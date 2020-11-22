@@ -87,8 +87,10 @@ values
           E.`employeeid` = #{id}
         and
           DATE(M.starttime) &gt; CURDATE()
-        and
-          DATE(M.starttime) &lt;= DATE_ADD(CURDATE(), interval #{day} day)
+          <if test="day != null">
+              and
+              DATE(M.starttime) &lt;= DATE_ADD(CURDATE(), interval #{day} day)
+          </if>
         and
           M.`roomid` = MR.`roomid`
         and

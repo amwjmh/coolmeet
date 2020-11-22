@@ -143,7 +143,7 @@
                             <label for="meetingname">会议名称:</label>
                         </div>
                         <div class="field">
-                            <input type="text" id="meetingname" name="meetingname" maxlength="20"/>
+                            <input type="text" required="required" id="meetingname" name="meetingname" maxlength="20"/>
                         </div>
                     </div>
 
@@ -152,7 +152,7 @@
                             <label for="numberofparticipants">预计参加人数:</label>
                         </div>
                         <div class="field">
-                            <input type="text" id="numberofparticipants" name="numberofparticipants" />
+                            <input type="text" required="required" id="numberofparticipants" name="numberofparticipants" />
                         </div>
                     </div>
 
@@ -162,7 +162,7 @@
                         </div>
                         <div class="field">
                             <%--<input type="date" id="startdate" name=""/>--%>
-                            <input type="datetime-local" id="starttime" name="st"/>
+                            <input type="datetime-local" required="required" id="starttime" name="st"/>
                         </div>
                     </div>
 
@@ -172,7 +172,7 @@
                         </div>
                         <div class="field">
                             <%--<input type="date" id="enddate" name=""/>--%>
-                            <input type="datetime-local" id="endtime" name="et"/>
+                            <input type="datetime-local" required="required" id="endtime" name="et"/>
                         </div>
                     </div>
 
@@ -217,6 +217,7 @@
                             </div>
                             <div id="divto">
                                 <select name="mps" id="selSelectedEmployees" multiple="multiple">
+                                    <option value="${judgment.employeeid}" selected="true">${judgment.employeename}</option>
                                 </select>
                             </div>
                         </div>

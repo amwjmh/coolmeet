@@ -15,13 +15,15 @@ import java.util.Date;
  */
 public class Test_01 {
 
+    public static void main(String[] args) {
+        int[] va = {1,21,323};
+
+        va[va.length+1] = 12;
+        System.out.println(va.length);
+        System.out.println(va);
+    }
+
     public void ja() throws ParseException {
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        String format = simpleDateFormat.format(date);
-
-
-        System.out.println(format);
 
     }
 }

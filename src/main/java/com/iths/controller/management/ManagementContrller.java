@@ -47,7 +47,8 @@ public class ManagementContrller {
     //用户注册
     @RequestMapping("/addEmployee")
     public String addEmployee(Employee employee, Model model){
-        employee.setStatus(Constant.STATUS_DEFAULT);
+        employee.setStatus(Constant.STATUS_DEFAULT);//用户状态
+        employee.setRole("0");
         System.out.println("添加用户"+employee);
         boolean b = employeeService.addEmployee(employee);
         return "redirect:/management/employeeRegistration";

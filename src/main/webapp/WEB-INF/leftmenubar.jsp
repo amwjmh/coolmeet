@@ -8,7 +8,7 @@
             <ul class="sidebar-menu">
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/notifications/notice">最新通知</a></li>
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/mybookings/myreservation">我的预定</a></li>
-                <li class="sidebar-menuitem"><a href="mymeetings.jsp">我的会议</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/jumpmymeetings">我的会议</a></li>
             </ul>
         </div>
         <div class="sidebar-menugroup">

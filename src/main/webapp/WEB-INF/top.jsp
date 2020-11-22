@@ -15,8 +15,7 @@
         <strong>${judgment.getEmployeename()}</strong>
 
             <a href="${pageContext.request.contextPath}/jumpchangepassword">[修改密码]</a>
-
-
+            <a href="${pageContext.request.contextPath}/dropout">[退出]</a>
     </div>
 </div>
 <%--头部模块--%>

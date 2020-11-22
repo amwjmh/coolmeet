@@ -51,14 +51,14 @@
 	float: left;
 }
 
-.page-body .page-content .fieldContainer .formRow .field select{
+.page-body .page-content .fieldContainer select{
 	width: 200px;
 	height: 30px;
 	margin-bottom: 20px;
 	box-shadow: 3px 3px 10px #9a9b9d
 }
 
-.page-body .page-content .fieldContainer .formRow .field input{
+.page-body .page-content .fieldContainer input{
 	border: 1px solid white;
 	    color: black;
 	    font-family: Arial,Helvetica,sans-serif;
@@ -174,7 +174,7 @@
 .page-body .page-content .listtable tbody tr .td >*{
 	    text-align: center;
 	        font-size: 15px;
-	        padding: 10px 10px;
+	        padding: 5px 5px;
 	        letter-spacing: 1.2px;
 	        border: none;
 	        text-transform: capitalize;
@@ -435,4 +435,39 @@
 	-webkit-transition-duration: 0.9s;
 	transition-duration: 0.9s;
 	background: rgba(91, 157, 214, 0.76);
+}
+/*====*/
+.page-body .page-content .fieldContainer .signup {
+	width: 130px;
+	margin: auto;
+}
+
+.page-body .page-content .fieldContainer .formRo {
+	height: 35px;
+	padding: 10px;
+	position: relative;
+	width: 338px;
+	margin: auto;
+}
+
+.page-body .page-content .fieldContainer .formRow .labe {
+	float: left;
+	/* padding: 0 20px 0 0; */
+	text-align: left;
+	width: 80px;
+}
+.page-body .page-content .fieldContainer .signup input {
+	width: 60px;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	letter-spacing: 1.2px;
+	border: none;
+	text-transform: capitalize;
+	outline: none;
+	-webkit-border-radius: 4px;
+	background: #5b76d6;
+	color: #fff;
+	cursor: pointer;
+	transition-duration: 0.9s;
 }

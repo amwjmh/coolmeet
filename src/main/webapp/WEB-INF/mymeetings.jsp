@@ -16,127 +16,32 @@
                 <div class="content-nav">
                     个人中心 > 我的会议
                 </div>
-                <table class="listtable">
+                <table class="listtable" class="listtable" cellpadding="0" cellspacing="0">
                     <caption>我将参加的会议：</caption>
-                    <tr class="listheader">
-                        <th>会议名称</th>
-                        <th>会议室名称</th>
-                        <th>会议开始时间</th>
-                        <th>会议结束时间</th>
-                        <th>会议预定时间</th>
-                        <th>预定者</th>
-                        <th>操作</th>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
-                        <td>
-                            <a class="clickbutton" href="meetingdetails.jsp">查看详情</a>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr class="listheader">
+                            <th>会议名称</th>
+                            <th>会议室名称</th>
+                            <th>会议开始时间</th>
+                            <th>会议结束时间</th>
+                            <th>会议预定时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="item" items="${mymeetings}">
+                        <tr>
+                            <td>${item.meetingname}</td>
+                            <td>${item.meetingroom.roomname}</td>
+                            <td>${item.starttime}</td>
+                            <td>${item.endtime}</td>
+                            <td>${item.reservationtime}</td>
+                            <td>
+                                <a class="clickbutton" href="${pageContext.request.contextPath}/searchmeetings/participatingemployees?meetingid=${item.meetingid}">参与员工</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
                 </table>
             </div>
         </div>

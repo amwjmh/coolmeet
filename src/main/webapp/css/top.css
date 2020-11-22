@@ -10,7 +10,9 @@ body{
     margin:10px auto;
     background-color:#ffff664a;
 }
-
+h1 {
+    font-size: 40px;
+}
 a{
     color:black;
     text-decoration:none;
@@ -28,18 +30,18 @@ a:visited{
 /* top.css --------------------------------------------------------------------------------------- */
 .page-header .header-banner img{
     height:100px;
+    width: 200px;
     vertical-align:middle;
 }
 .page-header{
     position:relative;
 	width: 1020px;
-    height:100px;
+    height:120px;
     border-radius:10px;   
     margin-bottom:10px;
     padding:10px;
 	boder: 1px solid #000;
 	background-color: #0099cc4f;
-    box-shadow: 16px 20px 10px 0px #9a9b9d;
 }
 .page-header .header-banner{
     float:left;
@@ -54,7 +56,6 @@ a:visited{
 
 .page-header .header-quicklink{
     float:right;
-    padding-top:80px;
 }
 
 /* ----------------------------------------------------------------------------- */

@@ -57,15 +57,14 @@ public class ScheduledMeetingController {
     @RequestMapping("/addmeeting")
     public String addMeeting(Meeting meeting, String st, String et , Integer[] mps, HttpSession session) throws ParseException {
 
-        System.out.println("/d"+st+"====="+et);
-        System.out.println(meeting);
         Employee judgment = (Employee) session.getAttribute("judgment");
         meeting.setReservationistid(judgment.getEmployeeid());
         meeting.setStarttime(dateConversionUtils.conversionDate(st));
         meeting.setEndtime(dateConversionUtils.conversionDate(et));
         meeting.setReservationtime(dateConversionUtils.converString(new Date()));
-        System.out.println(meeting);
-
+        for (Integer mp : mps) {
+            System.out.println(mp);
+        }
         Integer integer = meetingService.insertMeeting(meeting, mps);
 
         return "redirect:/scheduledmeeting/jumpbookmeeting";

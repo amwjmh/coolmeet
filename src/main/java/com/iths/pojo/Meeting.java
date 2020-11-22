@@ -34,7 +34,7 @@ public class Meeting {
     //* 预约时间
     private String reservationtime;
 
-    //* canceledtume   取消时间
+    //*取消时间
     private String canceledtime;
     //* 描述
     private String  description;

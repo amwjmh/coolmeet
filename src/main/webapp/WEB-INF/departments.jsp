@@ -88,20 +88,20 @@
 
             <thead>
              <tr class="listheader">
-                <th>部门编号</th>
-                <th>部门名称</th>
-                <th>操作</th>
+                <th style="width: 5%">部门编号</th>
+                <th style="width: 20%">部门名称</th>
+                <th style="width: 12%">操作</th>
               </tr>
             </thead>
             <tbody>
             <c:forEach var="department" items="${list}" varStatus="status">
                 <tr>
 
-                    <td width=10%>${status.index+1}</td>
-                    <td width=45% id="depar${status.index}">
+                    <td style="width: 5%">${status.index+1}</td>
+                    <td style="width: 20%" id="depar${status.index}">
                             ${department.departmentname}
                     </td>
-                    <td width=30% class="td">
+                    <td style="width: 12%" class="td">
                         <input id="edit${status.index}" class="clickbutton" type="button" value="编辑"/>
                         <input id="cancel${status.index}" class="clickbutton" type="hidden" value="取消"/>
                         <a id="del${status.index}" class="clickbutton" href="${pageContext.request.contextPath}/admin/deletedepartment?departmentid=${department.departmentid}">删除</a>

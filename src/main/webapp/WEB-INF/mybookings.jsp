@@ -42,7 +42,7 @@
                                 </c:if>
 
                                 <c:if test="${item.status != '1'}">
-                                    <a class="clickbutton" href="${pageContext.request.contextPath}/mybookings/jumpcancelmeeting?meetingid=${item.meetingid}">已撤消</a>
+                                    <a class="clickbutton">已撤消</a>
                                 </c:if>
                             </td>
                         </tr>
