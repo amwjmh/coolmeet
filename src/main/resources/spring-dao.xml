@@ -38,9 +38,11 @@
     <bean id="simpleDateFormat" class="java.text.SimpleDateFormat">
         <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm"/>
     </bean>
-
+<!--验证码-->
     <bean id="dateConversionUtils" class="com.iths.utils.DateConversionUtils">
         <property name="simpleDateFormat" ref="simpleDateFormat"/>
     </bean>
+    <!--异常处理-->
+    <bean id="handlerExceptionResolver" class="com.iths.extend.intercept.CustomExceptionResolver"></bean>
 
 </beans>

@@ -41,6 +41,8 @@ public class LoginController {
     //用户登入
     @RequestMapping("/login")
     public String login(String username, String password, String verCode, HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model){
+
+        int i = 2/0;
 //验证验证码是否正确
         if (!CaptchaUtil.ver(verCode, request)) {
             CaptchaUtil.clear(request);  // 清除session中的验证码
