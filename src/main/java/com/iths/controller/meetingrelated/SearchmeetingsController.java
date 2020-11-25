@@ -46,6 +46,7 @@ public class SearchmeetingsController {
 
         return "searchmeetings";
     }
+
     @RequestMapping("participatingemployees")
     public String participatingEmployees(Integer meetingid,Model model){
         System.out.println(meetingid);

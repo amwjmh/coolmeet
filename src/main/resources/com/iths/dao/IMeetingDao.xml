@@ -71,10 +71,10 @@ values
 	        M.`meetingid` = #{id}
     </select>
 
-<!--查询未来7需要参加的会议和取的会议-->
+<!--查询未来7需要参加的会议和取消的会议-->
     <select id="queryFutureMeetings" resultMap="meetingMap">
         select
-          M.`meetingid`,M.`meetingname`,MR.`roomname`,M.`starttime`,M.`endtime`,M.`description`
+          M.`meetingid`,M.`meetingname`,MR.`roomname`,M.`starttime`,M.`canceledtime`,M.`endtime`,M.`description`,M.`reservationtime`
         from
           employee E,meetingparticipants MPP,meeting M,meetingroom MR
         <where>

@@ -15,34 +15,15 @@
     <body>
     <script>
            function registered(form){
-               if(form.employeename.value==''){
-                   alert("姓名不能为空！");
-                   // $("#ang").text("");
-                   form.employeename.focus();
-                   return false;
-               }
-               if(form.username.value=='') {
-                   alert("用户名不能为空！");
-                   // $("#caveatone").text("用户名不能为空！");
-                   form.username.focus();
-                   return false;
-               }
-
-               if(form.password.value==''){
-                   alert("密码不能为空！");
-                   // $("#caveattwo").text("密码不能为空！");
-                   form.password.focus();
-                   return false;
-               }
                if(form.password.value.length<6){
                    alert("密码至少为6位，请重新输入！");
-                   // $("#caveattwo").text("密码至少为6位，请重新输入！");
+
                    form.password.focus();
                    return false;
                }
                if(form.password.value!=form.confirm.value) {
                    alert("密码不一致！");
-                   // $("#caveattwo").text("密码不一致！");
+
                    form.confirm.focus();
                    return false;
                }
@@ -60,7 +41,7 @@
                    //响应成功后的回调函数
                    success:function (data){
                        if(data == "exist"){
-                           alert("用户已存在。");
+                           alert("账户已存在。");
                            fatr = false;
                        }else {
                            alert("注册成功。");
@@ -81,11 +62,11 @@
         <form method="post" id="signupForm" action="${pageContext.request.contextPath}/management/addEmployee" name="form" onsubmit="return registered(this);" >
             <div class="fieldContainer">
                 <div class="formRo">
-                    <div class="label">
+                    <div class="labe">
                         <label for="employeename">姓名:</label>
                     </div>
                     <div class="field">
-                        <input type="text" name="employeename" maxlength="5" id="employeename">
+                        <input type="text" required="required" name="employeename" maxlength="5" id="employeename">
                     </div>
                 </div>
 
@@ -94,7 +75,7 @@
                         <label for="username">账户名:</label>
                     </div>
                     <div class="field">
-                        <input type="text" name="username" maxlength="20" id="username">
+                        <input type="text" required="required" name="username" maxlength="20" id="username">
                     </div>
                 </div>
 
@@ -103,7 +84,7 @@
                         <label for="password">密码:</label>
                     </div>
                     <div class="field">
-                        <input type="password" name="password" maxlength="20"id="password">
+                        <input type="password" required="required"  name="password" maxlength="20"id="password">
                     </div>
                 </div>
 
@@ -112,7 +93,7 @@
                         <label for="confirm">确认密码:</label>
                     </div>
                     <div class="field">
-                        <input type="password" maxlength="20" id="confirm">
+                        <input type="password" required="required" maxlength="20" id="confirm">
                     </div>
                 </div>
 
@@ -121,7 +102,7 @@
                         <label for="phone">联系电话:</label>
                     </div>
                     <div class="field">
-                        <input type="text" name="phone" maxlength="11" id="phone">
+                        <input type="text" required="required"  pattern="^[1][3,4,5,7,8][0-9]{9}$" name="phone" maxlength="11" id="phone">
                     </div>
                 </div>
 
@@ -130,7 +111,8 @@
                         <label for="email">邮箱:</label>
                     </div>
                     <div class="field">
-                        <input type="text" name="email" maxlength="20" id="email">
+                        <input type="text" required="required" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"
+                               title="请输入正确的邮箱格式" name="email" maxlength="20" id="email">
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@ public class Constant {
     //用户通过审核
     public static  final  String STATUS_ADOPT = "1";
 
-    //未审批默认为0
+    //未审批默认为0，新用户状态
     public static final String STATUS_DEFAULT = "0";
 
     //状态用户关闭  会议室删除  , 取消会议

@@ -46,7 +46,9 @@ public class ScheduledMeetingController {
      */
     @RequestMapping("/jumpbookmeeting")
     public  String jumpBookmeeting(Model model){
-        List<Meetingroom> meetingrooms = meetingroomService.queryAllMeetingroom(null);
+        Meetingroom meetingroom = new Meetingroom();
+        meetingroom.setStatus("1");
+        List<Meetingroom> meetingrooms = meetingroomService.queryAllMeetingroom(meetingroom);
         List<Department> departments = departmentService.queryAll();
         model.addAttribute("choicemee",meetingrooms);
         model.addAttribute("choicedep",departments);
@@ -62,9 +64,9 @@ public class ScheduledMeetingController {
         meeting.setStarttime(dateConversionUtils.conversionDate(st));
         meeting.setEndtime(dateConversionUtils.conversionDate(et));
         meeting.setReservationtime(dateConversionUtils.converString(new Date()));
-        for (Integer mp : mps) {
+        /*for (Integer mp : mps) {
             System.out.println(mp);
-        }
+        }*/
         Integer integer = meetingService.insertMeeting(meeting, mps);
 
         return "redirect:/scheduledmeeting/jumpbookmeeting";

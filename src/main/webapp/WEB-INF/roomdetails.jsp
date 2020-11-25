@@ -55,7 +55,7 @@
                             <c:if test="${roomdetails.status == 1}">
                             <input type="radio" id="status" name="status" checked="checked" value="1"/><label for="status">启用</label>
                             <input type="radio"  name="status" value="0"/><label for="status" >停用</label>
-                            <input type="radio"  name="status" value="-1"/><label for="status">删除</label>
+                            <%--<input type="radio"  name="status" value="-1"/><label for="status">删除</label>--%>
                             </c:if>
 
                             <c:if test="${roomdetails.status == 0}">

@@ -1,4 +1,4 @@
-package com.iths.controller.administration;
+package com.iths.controller.meetingrelated;
 
 import com.iths.pojo.Meetingroom;
 import com.iths.service.IMeetingroomService;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 添加会议室
  */
 @Controller
-@RequestMapping("/admin")
-public class AdminIncreaseMeetingsController {
+@RequestMapping("/Increase")
+public class IncreaseMeetingsController {
 
     @Autowired
     private IMeetingroomService meetingroomService;

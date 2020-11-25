@@ -23,7 +23,7 @@
                             <label for="description">会议名称:</label>
                         </div>
                         <div class="field">
-                            <h4>${single.meetingname}</h4>
+                            <h4 style="margin-top: 7px">${single.meetingname}</h4>
                         </div>
                     </div>
                     <div class="formRow">

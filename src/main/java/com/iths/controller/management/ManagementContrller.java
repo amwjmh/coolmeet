@@ -48,7 +48,7 @@ public class ManagementContrller {
     @RequestMapping("/addEmployee")
     public String addEmployee(Employee employee, Model model){
         employee.setStatus(Constant.STATUS_DEFAULT);//用户状态
-        employee.setRole("0");
+        employee.setRole(Constant.STATUS_DEFAULT);
         System.out.println("添加用户"+employee);
         boolean b = employeeService.addEmployee(employee);
         return "redirect:/management/employeeRegistration";
@@ -57,14 +57,10 @@ public class ManagementContrller {
 
     @RequestMapping("/determineUsernameExists")
     public void determineUsernameExists(Employee employee, HttpServletResponse response){
-        System.out.println("存在"+employee);
         Employee queryemployee = employeeService.queryEmployee(employee);
-
-        System.out.println(employee);
         if (queryemployee != null){
             try {
                 response.getWriter().write("exist");
-                System.out.println("---------------------------");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -12,14 +12,6 @@
     </head>
     <body>
     <script>
-        function text(form) {
-            if (form.departmentname.value==''){
-                $("#warning").text("请输入部门名称！");
-                form.departmentname.focus();
-                return false;
-            }
-            return true;
-        };
         //部门修改删除
         <c:forEach var="department" items="${list}" varStatus="status">
         $(function(){
@@ -63,14 +55,14 @@
         <div class="content-nav">
             人员管理 > 部门管理
         </div>
-        <form action="${pageContext.request.contextPath}/admin/increasedepartment" method="post" onsubmit="return text(this);">
+        <form action="${pageContext.request.contextPath}/admin/increasedepartment" method="post">
             <div class="fieldContainer">
                 <div class="formRow">
                     <div class="label">
                         <label>部门名称:</label>
                     </div>
                     <div class="field">
-                        <input type="text" id="departmentname" maxlength="20" name="departmentname"/>
+                        <input type="text" required="required" title="请输入部门名称！" id="departmentname" maxlength="20" name="departmentname"/>
                     </div>
 
                     <div class="signupButton">

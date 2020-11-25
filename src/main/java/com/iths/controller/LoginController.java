@@ -26,7 +26,6 @@ public class LoginController {
     @Autowired
     private IEmployeeService employeeService;
 
-
     /**
      * 验证码
      * @param request
@@ -42,7 +41,7 @@ public class LoginController {
     @RequestMapping("/login")
     public String login(String username, String password, String verCode, HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model){
 
-        int i = 2/0;
+//        int i = 2/0;
 //验证验证码是否正确
         if (!CaptchaUtil.ver(verCode, request)) {
             CaptchaUtil.clear(request);  // 清除session中的验证码
@@ -54,17 +53,18 @@ public class LoginController {
         System.out.println("--"+employee);
         //没有此用户
         if (employee == null) {
-            System.out.println("没有此用户");
 //            存入request
 
             model.addAttribute("tips","用户或密码错误！");
             return "forward:/";
         }else
+            if (employee.getStatus().equals("-1")){
+                model.addAttribute("warning","此用户已关闭！");
+            return "forward:/";
+            }
             if (employee.getRole().equals("0" )){
-
                 model.addAttribute("warning","此用户未通过审核！");
                 return "forward:/";
-
         }
         //存入session，用于判断用户是否登入
         session.setAttribute("judgment",employee);

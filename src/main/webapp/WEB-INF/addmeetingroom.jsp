@@ -35,7 +35,7 @@
                     <div class="content-nav">
                         会议预定 > 添加会议室
                     </div>
-                    <form method="post" action="${pageContext.request.contextPath}/admin/increaseConferenceRoom"  name="form" onsubmit="return text(this);">
+                    <form method="post" action="${pageContext.request.contextPath}/Increase/increaseConferenceRoom"  name="form" onsubmit="return text(this);">
 
                         <div class="fieldContainer">
                             <div class="formRow">
@@ -43,7 +43,7 @@
                                     <label for="roomnum">门牌号:</label>
                                 </div>
                                 <div class="field">
-                                    <input id="roomnum" type="text" placeholder="例如：201" maxlength="10" name="roomnum"/>
+                                    <input id="roomnum" type="text" required="required" placeholder="例如：201" maxlength="10" name="roomnum"/>
                                 </div>
                             </div>
 
@@ -52,7 +52,7 @@
                                     <label for="roomname">会议室名称:</label>
                                 </div>
                                 <div class="field">
-                                    <input id="roomname" type="text" placeholder="例如：第一会议室" maxlength="20" name="roomname"/>
+                                    <input id="roomname" type="text" required="required" placeholder="例如：第一会议室" maxlength="20" name="roomname"/>
                                 </div>
                             </div>
 
@@ -61,7 +61,7 @@
                                     <label for="capacity">最多容纳人数:</label>
                                 </div>
                                 <div class="field">
-                                    <input id="capacity" type="text" placeholder="填写一个正整数" name="capacity"/>
+                                    <input id="capacity" type="text" required="required" placeholder="填写一个正整数" name="capacity"/>
                                 </div>
                             </div>
 

@@ -21,7 +21,7 @@ public class DateConversionUtils {
 
 
     /**
-     * String去T转Date ---datetime-local -> Date
+     * String去转TDate ---datetime-local -> Date
      * @param ts
      * @return
      * @throws ParseException
@@ -29,7 +29,6 @@ public class DateConversionUtils {
     public  String conversionDate(String ts) throws ParseException {
 
         return  ts.replace("T", " ");
-
 
     }
 

@@ -20,11 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminEmployeeController {
 
-
-
     @Autowired
     private IEmployeeService employeeService;
-
 //模糊分布查询
     @RequestMapping("/jumpsearchemployees")
     public String jumpSearchemployees(PageBean<Employee> pageBean,Employee employee, Model model){
@@ -35,8 +32,6 @@ public class AdminEmployeeController {
         if(employee.getStatus() == null || employee.getStatus() == ""){
             employee.setStatus("1");
         }
-        System.out.println(pageBean);
-        System.out.println(employee);
         //页面条数
         pageBean.setRows(Constant.ROWS);
         PageBean<Employee> employeeByPage = employeeService.findEmployeeByPage(pageBean,employee);
@@ -52,9 +47,12 @@ public class AdminEmployeeController {
     //关闭账号
     @RequestMapping("/close")
     public String closeAccount(Employee employee){
-        employee.setStatus(Constant.STATUS_CLOSE);
         employeeService.updateEmployeeByEmployeeid(employee);
         return "redirect:/admin/jumpsearchemployees";
     }
+
+//    public String
+
+
 
 }

@@ -15,7 +15,7 @@
         <%@include file="leftmenubar.jsp"%>
         <div class="page-content">
             <div class="content-nav">
-                会议预定 > 修改会议预定 > 会议信息
+                会议预定 >  会议信息
             </div>
 
             <table class="listtable" cellpadding="0" cellspacing="0">

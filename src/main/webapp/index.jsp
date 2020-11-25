@@ -16,14 +16,14 @@
     $(document).ready(function(){
         $(".verification").click(
             function () {
-                $(".verification").attr("src","${pageContext.request.contextPath}/employee/captcha");
+                <%--$(".verification").attr("src","${pageContext.request.contextPath}/employee/captcha");--%>
                 $.ajax({
                     url: "${pageContext.request.contextPath}/employee/captcha",
                     type: "POST",
                     dataType: 'text',
                     success: function(data, statusText, xmlHttpRequest){
 
-                        console.log(data);
+                        // console.log(data);
 
                         $(".verification").attr("src","${pageContext.request.contextPath}/employee/captcha");
                         //此处刷新图片src
@@ -35,7 +35,7 @@
             }
         );
     });
-    function test(form) {
+   /* function test(form) {
         if(form.username.value == '' || form.password.value == '' ){
             alert("请输入账户和密码！");
 
@@ -47,7 +47,7 @@
             return false;
         }
         return true;
-    }
+    }*/
 </script>
 <div class="page-header">
     <div class="header-banner">
@@ -60,12 +60,12 @@
 
 <div id="lonig" class="fieldset">
     <div class="formtable">
-        <form action="${pageContext.request.contextPath}/employee/login" method="post" onsubmit="return test(this);">
-            <input id="accountname" placeholder="账号名:" type="text" name="username"/>
+        <form action="${pageContext.request.contextPath}/employee/login" method="post">
+            <input id="accountname" required="required" placeholder="账号名:" type="text" name="username"/>
             </br>
-            <input id="new" placeholder="密码:" type="password" name="password" />
+            <input id="new" required="required" placeholder="密码:" type="password" name="password" />
 
-            <input id="code" placeholder="验证码:" type="text" name="verCode" />
+            <input id="code" required="required" placeholder="验证码:" type="text" name="verCode" />
 
             <img class="verification" src="${pageContext.request.contextPath}/employee/captcha" width="100px" height="45px" />
 

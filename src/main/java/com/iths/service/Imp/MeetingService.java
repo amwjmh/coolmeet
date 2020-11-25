@@ -34,9 +34,6 @@ public class MeetingService implements IMeetingService {
 
         meeting.setStatus(Constant.STATUS_ADOPT);
         Integer integer = meetingDao.insertMeeting(meeting);
-
-        System.out.println(meeting.getMeetingid());
-
        List<Meetingparticipants>  lists= new ArrayList<>();
         for (Integer mp : mps) {
             Meetingparticipants mparticipants = new Meetingparticipants();
@@ -44,8 +41,6 @@ public class MeetingService implements IMeetingService {
             mparticipants.setEmployeeid(mp);
             lists.add(mparticipants);
         }
-
-        System.out.println(lists);
         meetingparticipantsDao.insertMeetingparticipants(lists);
         return integer;
     }
@@ -53,12 +48,11 @@ public class MeetingService implements IMeetingService {
     @Override
     public PageBean<Meeting> findMeetingByPage(PageBean<Meeting> pageBean,Meeting meeting){
         PageBean<Meeting> meetingPageBean = new PageBean<>();
-        System.out.println(meeting);
         //计算偏移量
         pageBean.setOffset((pageBean.getCurrentPage()-1)*Constant.ROWS);
         //查询会议
         List<Meeting> meetings = meetingDao.queryVaguePagingMeeting(pageBean, meeting);
-
+        System.out.println("========="+meetings);
         //查询总记录数
         Integer totalMeeting = meetingDao.queryTotalMeeting(meeting);
 
@@ -81,6 +75,13 @@ public class MeetingService implements IMeetingService {
         return meetingDao.queryParticipatingEmployees(id);
     }
 
+    /**
+     * 查询示来
+     * @param id
+     * @param day
+     * @param status
+     * @return
+     */
     @Override
     public List<Meeting> queryFutureMeetings(Integer id, Integer day,String status) {
         List<Meeting> meetings = meetingDao.queryFutureMeetings(id, day,status);

@@ -27,9 +27,9 @@
             <div class="sidebar-grouptitle">会议预定</div>
             <ul class="sidebar-menu">
                 <c:if test="${judgment.role=='2'}">
-                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/admin/jumpaddroom">添加会议室</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/Increase/jumpaddroom">添加会议室</a></li>
                 </c:if>
-                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/conferenceromm/jumpviewconferenceromm">查看会议室</a></li>
+                <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/conferenceromm/viewconferenceromm">查看会议室</a></li>
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/scheduledmeeting/jumpbookmeeting">预定会议</a></li>
                 <li class="sidebar-menuitem"><a href="${pageContext.request.contextPath}/searchmeetings/jumpsearchmeetings?currentPage=1">搜索会议</a></li>
             </ul>

@@ -36,12 +36,13 @@ public class NotificationsController {
         Employee emp = (Employee)session.getAttribute("judgment");
         Integer employeeid = emp.getEmployeeid();
         //未来7天的会议数据
-        List<Meeting> meetings = meetingService.queryFutureMeetings(employeeid, Constant.FUTURE_TIME,Constant.STATUS_ADOPT);
-        System.out.println("==============================="+meetings);
+        List<Meeting> meetings =
+                meetingService.queryFutureMeetings(employeeid, Constant.FUTURE_TIME,Constant.STATUS_ADOPT);
         model.addAttribute("meetingdata",meetings);
 
         //取消的会议
-        List<Meeting> meetings1 = meetingService.queryFutureMeetings(employeeid, Constant.FUTURE_TIME, Constant.STATUS_CLOSE);
+        List<Meeting> meetings1 =
+                meetingService.queryFutureMeetings(employeeid, Constant.FUTURE_TIME, Constant.STATUS_CLOSE);
         model.addAttribute("meetingdata1",meetings1);
 
         return "notifications";

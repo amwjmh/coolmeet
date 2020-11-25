@@ -27,42 +27,34 @@ public class NoLoginHandlerInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         //获取项目路径
-     String contextPath =  request.getContextPath();
-     //获取请求URI
+        String contextPath =  request.getContextPath();
+        //获取请求URI
        String  requestURI = request.getRequestURI();
-
-        //判断是否是登入页面
-        //是
-        if (requestURI.indexOf(contextPath+"/employee/login")>=0){
+        //判断是否是登入页面放行
+        if (pathMatcher.match(contextPath+"/employee/login",requestURI)){
             return true;
         }
-
-        //验证码
-        if (requestURI.indexOf(contextPath+"/employee/captcha")>=0){
+        //判断是否是验证码放行
+        if (pathMatcher.match(contextPath+"/employee/captcha",requestURI)){
             return true;
         }
-
-        //不是
         // 获取session中用户信息,判断是否登入；
-        Employee currentuser = (Employee) request.getSession(true).getAttribute("judgment");
+        Employee curren = (Employee) request.getSession(true).getAttribute("judgment");
 
-        if (currentuser != null) {
+        if (curren != null) {
             //已登入
             //判断路径
             if (pathMatcher.match(contextPath+"/admin/**",requestURI)){
-                if (currentuser.getRole().equals("2")) {
-
+                if (curren.getRole().equals("2")) {
+                    //是管理员
                     return true;
                 }else {
                     //不是管理员
-
                     return false;
                 }
             }
             return true;
         }
-
-
             //重定向到登入页
         response.sendRedirect(contextPath+"/index.jsp");
 

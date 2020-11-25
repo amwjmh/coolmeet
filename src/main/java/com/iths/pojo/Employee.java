@@ -30,6 +30,6 @@ public class Employee {
     private Integer departmentid;
     //密码
     private String password;
-    //角色
+    //权限状态
     private String role;
 }

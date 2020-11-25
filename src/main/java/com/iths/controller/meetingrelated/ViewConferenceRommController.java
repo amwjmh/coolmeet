@@ -27,11 +27,19 @@ public class ViewConferenceRommController {
     @Autowired
     private IMeetingroomService meetingroomService;
 
-    //查询
+    /*//查询
     @RequestMapping("/jumpviewconferenceromm")
     public String jumpViewConferenceRomm(Model model){
-        List<Meetingroom> meetingrooms = meetingroomService.queryAllMeetingroom(null);
+        Meetingroom meetingroom = new Meetingroom();
+        meetingroom.setStatus("1");
+        List<Meetingroom> meetingrooms = meetingroomService.queryAllMeetingroom(meetingroom);
+        model.addAttribute("meetingrooms",meetingrooms);
+        return "meetingrooms";
+    }*/
 
+    @RequestMapping("/viewconferenceromm")
+    public String ViewConferenceRomm(Model model){
+        List<Meetingroom> meetingrooms = meetingroomService.queryAllMeetingroom(null);
         model.addAttribute("meetingrooms",meetingrooms);
         return "meetingrooms";
     }
@@ -48,15 +56,16 @@ public class ViewConferenceRommController {
     //修改
     @RequestMapping("/updateroom")
     public String updateroom(Meetingroom meetingroom){
+        System.out.println("2222"+meetingroom);
         meetingroomService.updateMeetingroomByroomid(meetingroom);
-        return "redirect:/conferenceromm/jumpviewconferenceromm";
+        return "redirect:/conferenceromm/viewconferenceromm";
     }
 
     //删除会议室
     @RequestMapping("/deletemeetingroom")
     public String deleteMeetingroom(Meetingroom meetingroom){
         meetingroomService.deleteMeetingroomByroomid(meetingroom);
-        return "redirect:/conferenceromm/jumpviewconferenceromm";
+        return "redirect:/conferenceromm/viewconferenceromm";
     }
 
 }

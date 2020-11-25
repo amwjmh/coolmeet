@@ -13,7 +13,7 @@
 }
 
 .page-body .page-content .fieldContainer{
-	   
+
 	    border: 1px solid #fef548;
 	    padding: 10px;
 	    -moz-box-shadow: 0 0 20px #292929 inset;
@@ -155,7 +155,7 @@
 .page-body .page-content .listtable .clickbutton:hover{
 	-webkit-transition-duration: 0.9s;
 	transition-duration: 0.9s;
-	background: red;
+	background: #0066ff8a;
 }
 
 
@@ -303,11 +303,7 @@
 	cursor: pointer;
 	transition-duration: 0.9s;
 }
-.page-body .page-content .result .pager-header .header-nav .clickbutton:hover{
-	-webkit-transition-duration: 0.9s;
-	transition-duration: 0.9s;
-	background: rgba(91, 157, 214, 0.76);
-}
+
 
 .page-body .page-content .result .pager-header .header-nav .nav-number{
 	    border: 1px solid white;
@@ -438,8 +434,9 @@
 }
 /*====*/
 .page-body .page-content .fieldContainer .signup {
-	width: 130px;
+	width: 60px;
 	margin: auto;
+	margin-top: 20px;
 }
 
 .page-body .page-content .fieldContainer .formRo {
@@ -450,12 +447,21 @@
 	margin: auto;
 }
 
-.page-body .page-content .fieldContainer .formRow .labe {
+.page-body .page-content .fieldContainer .formRo .labe {
 	float: left;
 	/* padding: 0 20px 0 0; */
 	text-align: left;
 	width: 80px;
 }
+
+.page-body .page-content .fieldContainer .formRo .labe label {
+	font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	font-weight: 600;
+}
+
 .page-body .page-content .fieldContainer .signup input {
 	width: 60px;
 	text-align: center;

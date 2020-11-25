@@ -62,7 +62,6 @@
                                     <input type="radio"  name="status" value="1" checked="checked"/><label>已批准</label>
                                     <input type="radio"  name="status" value="0"/><label>待审批</label>
                                     <input type="radio"  name="status" value="-1"/><label>已关闭</label>
-
                             </c:if>
 
 
@@ -77,7 +76,6 @@
                                     <input type="radio"  name="status" value="0"/><label>待审批</label>
                                     <input type="radio"  name="status" value="-1" checked="checked"/><label>已关闭</label>
                                 </c:if>
-
                         </div>
                     </div>
 
@@ -108,10 +106,17 @@
                         <td>${item.username}</td>
                         <td>${item.phone}</td>
                         <td>${item.email}</td>
-                        <td>
-                            <a class="clickbutton" href="${pageContext.request.contextPath}/admin/close?employeeid=${item.employeeid}">关闭账号</a>
+                        <c:if test="${item.status != -1}">
+                            <td>
+                                <a class="clickbutton" href="${pageContext.request.contextPath}/admin/close?employeeid=${item.employeeid}">关闭账号</a>
 
-                        </td>
+                            </td>
+                        </c:if>
+                        <c:if test="${item.status == -1}">
+                            <td>
+                                <a class="clickbutton">已关闭</a>
+                            </td>
+                        </c:if>
                     </tr>
                 </C:forEach>
                 </tbody>
@@ -129,7 +134,7 @@
 
                     <div class="header-nav">
                         <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=1" class="clickbutton">首页</a>
-                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.currentPage-1}" class="clickbutton">上页</a>
+                        <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.currentPage-1}" <c:if test="${pagebean_emp.currentPage == 1}">style="cursor:not-allowed" </c:if> class="clickbutton">上页</a>
                         <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.currentPage+1}" class="clickbutton">下页</a>
                         <a href="${pageContext.request.contextPath}/admin/jumpsearchemployees?currentPage=${pagebean_emp.totalPage}" class="clickbutton">末页</a>
                         跳到第<input type="text" id="pagenum"  onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" class="nav-number"/>页

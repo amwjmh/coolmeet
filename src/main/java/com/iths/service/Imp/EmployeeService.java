@@ -26,7 +26,6 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public Employee employeeLogin(String username,String password) {
         Employee employee = employeeDao.queryEmployeeByUsername(username);
-        System.out.println(employee);
         //验证密码是否正确
         if (employee == null || !password.equals(employee.getPassword())){
             return null;
@@ -61,6 +60,8 @@ public class EmployeeService implements IEmployeeService {
     //根据ID修改值
     @Override
     public void updateEmployeeByEmployeeid(Employee employee) {
+        employee.setStatus(Constant.STATUS_CLOSE);
+//        employee.setRole(Constant.STATUS_DEFAULT);
         employeeDao.updateEmployeeByEmployeeid(employee);
     }
 
@@ -78,14 +79,10 @@ public class EmployeeService implements IEmployeeService {
     public PageBean<Employee> findEmployeeByPage(PageBean<Employee> pageBean,Employee employee) {
         //创建返回pagebean
         PageBean<Employee> employeePageBean = new PageBean<>();
-
-
         //计算偏移量
         pageBean.setOffset((pageBean.getCurrentPage()-1)* Constant.ROWS);
-        System.out.println(pageBean);
         //页面数据
         List<Employee> employees = employeeDao.queryVaguePagingEmployee(pageBean,employee);
-        System.out.println("service----employees"+employees);
 
         //总条数
         Integer totalEmployee = employeeDao.queryTotalEmployee(employee);
