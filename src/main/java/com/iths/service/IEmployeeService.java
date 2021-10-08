@@ -19,7 +19,7 @@ public interface IEmployeeService {
     Employee queryEmployee(Employee employee);
 
     //添加用户
-     boolean addEmployee(Employee employee);
+     boolean insertEmployee(Employee employee);
 
      List<Employee> queryEmployeeByStatus(String status);
 

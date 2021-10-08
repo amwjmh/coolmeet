@@ -17,6 +17,8 @@
             <div class="content-nav">
                 会议预定 >  会议信息
             </div>
+                   <h4>会议名称：${participat.meetingname}</h4>
+                   <h4>描述：${participat.description}</h4>
 
             <table class="listtable" cellpadding="0" cellspacing="0">
                 <caption>参与员工:</caption>
@@ -28,7 +30,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${participat}" var="item">
+                <c:forEach items="${participat.employees}" var="item">
                     <tr>
                         <td>${item.employeename}</td>
                         <td>${item.phone}</td>

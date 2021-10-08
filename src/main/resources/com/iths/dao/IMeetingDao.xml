@@ -18,6 +18,12 @@
         <association property="meetingroom" javaType="meetingroom">
             <result property="roomname" column="roomname"/>
         </association>
+        <collection property="employees" ofType="employee">
+            <id property="employeeid" column="employeeid"/>
+            <result property="employeename" column="employeename"/>
+            <result property="phone" column="phone"/>
+            <result property="email" column="email"/>
+        </collection>
     </resultMap>
 
     <insert id="insertMeeting" parameterType="meeting" useGeneratedKeys="true"  >
@@ -58,9 +64,9 @@ values
         </where>
     </select>
 <!--查询当前会议的员工-->
-    <select id="queryParticipatingEmployees" resultType="employee" parameterType="Integer">
+    <select id="queryParticipatingEmployees" resultMap="meetingMap" parameterType="Integer">
         select
-            E.*
+            E.*,M.*
         from
             employee E,meetingparticipants MPP,meeting M
         where

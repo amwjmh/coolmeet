@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>CoolMeeting会议管理系统</title>
-        <<%@include file="/WEB-INF/ico.jsp"%>
+        <%@include file="/WEB-INF/ico.jsp"%>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/top.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tail.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/content.css"/>

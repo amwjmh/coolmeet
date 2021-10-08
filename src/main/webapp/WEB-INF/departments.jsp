@@ -11,45 +11,45 @@
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     </head>
     <body>
-    <script>
-        //部门修改删除
-        <c:forEach var="department" items="${list}" varStatus="status">
-        $(function(){
-            var old = $('#depar${status.index}').html();
-            //修改
-            $('#edit${status.index}').click(function(){
-                if($('#edit${status.index}').attr('value')!=='提交'){
-                    $('#depar${status.index}').html("<input id='inp${status.index}' type='text' name='editname' value="+old+" >");
-                    $('#cancel${status.index}').attr('type','button');
-                    $('#edit${status.index}').attr('value','提交');
-                }else{
-                    //提交
-                    $.ajax({
-                        url:"${pageContext.request.contextPath}/admin/updatedepartment",
-                        type:"POST" , //请求方式
-                        dataType:"text",//设置接受到的响应数据的格式
-                        data:{
-                            departmentid:${department.departmentid},
-                            departmentname:$("#inp${status.index}").val()
-                        },
-                        //响应成功后的回调函数
-                        success:function (data){
-                            window.location.href="${pageContext.request.contextPath}/admin/jumpdepartment";
-                        },
+        <%@include file="top.jsp"%>
+        <script>
+            //部门修改删除
+            <c:forEach var="department" items="${list}" varStatus="status">
+            $(function(){
+                var old = $('#depar${status.index}').html();
+                //修改
+                $('#edit${status.index}').click(function(){
+                    if($('#edit${status.index}').attr('value')!=='提交'){
+                        $('#depar${status.index}').html("<input id='inp${status.index}' required='required' type='text' name='editname' value="+old+" >");
+                        $('#cancel${status.index}').attr('type','button');
+                        $('#edit${status.index}').attr('value','提交');
+                    }else{
+                        //提交
+                        $.ajax({
+                            url:"${pageContext.request.contextPath}/admin/updatedepartment",
+                            type:"POST" , //请求方式
+                            dataType:"text",//设置接受到的响应数据的格式
+                            data:{
+                                departmentid:${department.departmentid},
+                                departmentname:$("#inp${status.index}").val()
+                            },
+                            //响应成功后的回调函数
+                            success:function (data){
+                                window.location.href="${pageContext.request.contextPath}/admin/jumpdepartment";
+                            },
 
                         });
-                }
+                    }
+                });
+                //取消
+                $("#cancel${status.index}").click(function(){
+                    $('#edit${status.index}').attr('value','编辑');
+                    $('#depar${status.index}').html(old);
+                    $('#cancel${status.index}').attr('type','hidden');
+                });
             });
-            //取消
-            $("#cancel${status.index}").click(function(){
-                $('#edit${status.index}').attr('value','编辑');
-                $('#depar${status.index}').html(old);
-                $('#cancel${status.index}').attr('type','hidden');
-            });
-        });
-        </c:forEach>
-    </script>
-        <%@include file="top.jsp"%>
+            </c:forEach>
+        </script>
         <%@include file="leftmenubar.jsp"%>
     <div class="page-content">
         <div class="content-nav">

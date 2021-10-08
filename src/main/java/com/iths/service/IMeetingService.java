@@ -18,7 +18,7 @@ public interface IMeetingService {
 
     public PageBean<Meeting> findMeetingByPage(PageBean<Meeting> pageBean, Meeting meeting);
 
-    public List<Employee> queryParticipatingEmployees(Integer id);
+    public Meeting queryParticipatingEmployees(Integer id);
 
     List<Meeting> queryFutureMeetings(Integer id,Integer day,String status);
 

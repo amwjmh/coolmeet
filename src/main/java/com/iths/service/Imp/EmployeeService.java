@@ -45,7 +45,7 @@ public class EmployeeService implements IEmployeeService {
 
     //添加用户
     @Override
-    public boolean addEmployee(Employee employee){
+    public boolean insertEmployee(Employee employee){
 
         employeeDao.insertEmployee(employee);
             return true;

@@ -18,16 +18,11 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
+//        在命令行打印异常信息在程序中出错的位置及原因
         e.printStackTrace();
 
         ModelAndView modelAndView = new ModelAndView();
-        if (e instanceof SystemException){
-            modelAndView.setViewName("505");
-        }else {
-            modelAndView.setViewName("404");
-        }
-
-
+        modelAndView.setViewName("505");
         return modelAndView;
     }
 }

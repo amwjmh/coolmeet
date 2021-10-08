@@ -38,7 +38,7 @@ public interface IMeetingDao {
      * 查询参加会议员工
      * @return
      */
-    public List<Employee> queryParticipatingEmployees(Integer id);
+    public Meeting queryParticipatingEmployees(Integer id);
 
     /**
      * 查询用户未来需要参加的会议

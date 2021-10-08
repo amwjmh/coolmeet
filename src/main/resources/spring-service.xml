@@ -12,7 +12,8 @@
     <tx:advice id="tm1" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="query*" read-only="true" propagation="SUPPORTS" />
-            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="find*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="insert*"  propagation="REQUIRED"/>
             <tx:method name="update*" propagation="REQUIRED"/>
             <tx:method name="delete*" propagation="REQUIRED"/>
         </tx:attributes>

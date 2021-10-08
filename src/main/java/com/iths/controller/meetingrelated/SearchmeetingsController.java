@@ -51,8 +51,9 @@ public class SearchmeetingsController {
     public String participatingEmployees(Integer meetingid,Model model){
         System.out.println(meetingid);
 
-        List<Employee> employees = meetingService.queryParticipatingEmployees(meetingid);
-        model.addAttribute("participat",employees);
+        Meeting meeting = meetingService.queryParticipatingEmployees(meetingid);
+        System.out.println("/////////////////"+meeting);
+        model.addAttribute("participat",meeting);
         return "meetingdetails";
     }
 

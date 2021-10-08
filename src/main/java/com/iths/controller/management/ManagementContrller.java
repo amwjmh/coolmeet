@@ -50,7 +50,7 @@ public class ManagementContrller {
         employee.setStatus(Constant.STATUS_DEFAULT);//用户状态
         employee.setRole(Constant.STATUS_DEFAULT);
         System.out.println("添加用户"+employee);
-        boolean b = employeeService.addEmployee(employee);
+        boolean b = employeeService.insertEmployee(employee);
         return "redirect:/management/employeeRegistration";
     }
     //判断用户是否已存在

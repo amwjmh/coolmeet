@@ -71,7 +71,7 @@ public class MeetingService implements IMeetingService {
     }
 
     @Override
-    public List<Employee> queryParticipatingEmployees(Integer id) {
+    public Meeting queryParticipatingEmployees(Integer id) {
         return meetingDao.queryParticipatingEmployees(id);
     }
 

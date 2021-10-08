@@ -46,5 +46,7 @@ public class Meeting {
 
     private Meetingroom meetingroom;
 
+    private List<Employee> employees;
+
 
 }

@@ -17,6 +17,7 @@ import java.util.List;
  * @author 黄小帅
  * @version 1.0
  * @date 2020/9/19 23:54
+ * 最新通知
  */
 @Controller
 @RequestMapping("/notifications")
@@ -41,8 +42,7 @@ public class NotificationsController {
         model.addAttribute("meetingdata",meetings);
 
         //取消的会议
-        List<Meeting> meetings1 =
-                meetingService.queryFutureMeetings(employeeid, Constant.FUTURE_TIME, Constant.STATUS_CLOSE);
+        List<Meeting> meetings1 = meetingService.queryFutureMeetings(employeeid, Constant.FUTURE_TIME, Constant.STATUS_CLOSE);
         model.addAttribute("meetingdata1",meetings1);
 
         return "notifications";
